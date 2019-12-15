@@ -1,0 +1,115 @@
+# OpenMapTiles
+
+本項ではopenmaptilesを利用して簡単にベクトルタイルのバイナリ(.mbtile形式)を作成するところまでを解説します。
+
+## ターゲット
+
+- OpenMapTiles v3.10
+
+## ハードウェア
+
+- 64bit CPU
+- 4GBメモリ以上
+- 30GB以上のディスクスペース
+
+## ソフトウェア
+
+- Docker
+- Docker Compose
+- git
+- make
+- bc
+
+# セットアップ
+
+openmaptiles の ```quickstart.sh``` の実行に必要なコマンドをインストールします。
+
+## Ubuntu
+
+```bash
+sudo apt-get install git make bc
+```
+
+## Mac
+
+```
+sudo xcode-select -s /Applications/Xcode.app
+xcode-select --install
+```
+
+## openmaptiles
+
+最初にopenmaptilesをgithubから`git clone`して、ターゲットとなるバージョンを指定します。
+
+```bash
+git clone https://github.com/openmaptiles/openmaptiles.git
+cd ./openmaptiles
+git checkout -b v3.10 refs/tags/v3.10
+```
+
+次に必要なdocker imageを取得します。
+
+```
+docker-compose pull
+```
+
+これでセットアップは完了です。
+
+# タイルの作成
+
+openmaptilesではquickstart.shを通して以下の作業をします。
+
+- インポート先となるPostgreSQLのインスタンスを起動
+- OpenStreetMapのデータを[geofabrikのミラー](http://download.geofabrik.de)からダウンロード
+- Natural EarthなどのOpenStreetMap以外で必要なデータのダウンロードとインポート
+- layersの定義に沿って[imposm3](https://github.com/omniscale/imposm3)を使ってOSMデータをインポート
+- `Mapbox Vector Tile`を生成して `data/tiles.mbtiles` へ格納
+
+また、デフォルトではズームレベル 7 のタイルまでしか作成しないため、事前に .env にある`QUICKSTART_MAX_ZOOM`の値を変更しておく必要があります。
+
+```bash
+vi .env
+```
+
+ズームレベル14まで生成する場合は、差分は以下のようになります。
+
+```diff
+@@ -4,5 +4,5 @@
+ POSTGRES_HOST=postgres
+ POSTGRES_PORT=5432
+ QUICKSTART_MIN_ZOOM=0
+-QUICKSTART_MAX_ZOOM=7
++QUICKSTART_MAX_ZOOM=14
+ DIFF_MODE=false
+```
+
+あとは `quickstart.sh` を使ってタイルを作成します。
+
+```bash
+./quickstart.sh {country_name}
+```
+
+日本のデータを作成する場合は以下のように行います。
+
+```bash
+./quickstart.sh japan
+```
+
+作成可能な国名の一覧(geofabrickのミラーの一覧)は以下のコマンドで取得できます。
+
+```bash
+make list
+```
+
+## タイルの再作成
+
+最新のデータを使ってタイルを再度作成する場合は一度作成したタイルや設定ファイルを削除する必要があります。
+また、dockerで作成されるため、ディレクトリがroot権限で作成されるため、以下のようにします。
+
+```bash
+cd openmaptiles
+sudo rm -fr data
+./quickstart.sh japan
+```
+
+
