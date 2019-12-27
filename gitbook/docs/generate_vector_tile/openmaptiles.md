@@ -37,6 +37,8 @@ sudo xcode-select -s /Applications/Xcode.app
 xcode-select --install
 ```
 
+なお、`xcode-select`はCommand Line Toolsをインストールするもので、直接xcodeを起動してた場合は必要ない可能性があります。また、アップデートはSoftware Updateで自動的に行われます。
+
 ## openmaptiles
 
 最初にopenmaptilesをgithubから`git clone`して、ターゲットとなるバージョンを指定します。
