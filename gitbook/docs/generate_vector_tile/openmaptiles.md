@@ -14,15 +14,21 @@
 
 ## ソフトウェア
 
+共通して必要なもの
+
 - Docker
 - Docker Compose
 - git
 - make
+
+`quickstart.sh`で利用されるもの
+
 - bc
+- md5sum (Ubuntuでは`coreutils`に、macOSのHomebrewでは`md5sha1sum`に含まれる)
 
 # セットアップ
 
-openmaptiles の ```quickstart.sh``` の実行に必要なコマンドをインストールします。
+openmaptiles の `quickstart.sh` の実行に必要なコマンドをインストールします。
 
 ## Ubuntu
 
@@ -35,9 +41,12 @@ sudo apt-get install git make bc
 ```
 sudo xcode-select -s /Applications/Xcode.app
 xcode-select --install
+brew install md5sha1sum
 ```
 
 なお、`xcode-select`はCommand Line Toolsをインストールするもので、直接xcodeを起動してた場合は必要ない可能性があります。また、アップデートはSoftware Updateで自動的に行われます。
+
+また、md5sumは必須ではないが`quickstart.sh`を実行後に停止してしまうのでインストールを推奨。
 
 ## openmaptiles
 
