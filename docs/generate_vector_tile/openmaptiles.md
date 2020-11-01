@@ -4,7 +4,7 @@
 
 ## ターゲット
 
-- OpenMapTiles v3.10
+- OpenMapTiles v3.11
 
 ## ハードウェア
 
@@ -33,7 +33,7 @@ openmaptiles の `quickstart.sh` の実行に必要なコマンドをインス�
 ## Ubuntu
 
 ```bash
-sudo apt-get install git make bc
+sudo apt install git make bc
 ```
 
 ## Mac
@@ -55,7 +55,7 @@ brew install md5sha1sum
 ```bash
 git clone https://github.com/openmaptiles/openmaptiles.git
 cd ./openmaptiles
-git checkout -b v3.10 refs/tags/v3.10
+git checkout -b v3.11 refs/tags/v3.11
 ```
 
 次に必要なdocker imageを取得します。
