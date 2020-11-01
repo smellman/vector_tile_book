@@ -63,8 +63,6 @@ https://github.com/maputnik/editor/wiki/Maputnik-CLI
 次に、フォントとスプライトを変更します。
 画面上部の `Style Settings` を選択し、 `Style Settings` のダイアログを出します。
 
-\clearpage
-
 [maputnik-3]: images/maputnik_3.png
 ![Style Settings][maputnik-3]
 
@@ -533,7 +531,6 @@ https://www.mapbox.com/mapbox-gl-js/style-spec/#layers-symbol
 
 
 
-\clearpage
 
 # テクニック
 
@@ -580,8 +577,6 @@ Klokantech Basicの `road_trunk_primary` では `line-width` の値を以下の�
 
 まず、`Paint properties` の `Width` の左にある `Σ` を選択します。
 
-\clearpage
-
 [maputnik-function-01]: images/maputnik_function_01.png
 ![Zoomのswitch][maputnik-function-01]
 
@@ -611,8 +606,6 @@ Klokantech Basicの `road_trunk_primary` では `line-width` の値を以下の�
 1. buildingのレイヤーをコピーして、buildingの１つ下のレイヤーに配置をする。この時building-shadowなどわかりやすいIDを付けておく
 2. building-shadowのColorを元の色よりも濃い目にする
 3. building-shadowのTranslateでx, yを2か3ぐらいの値を入力する
-
-\clearpage
 
 [maputnik-translate-01]: images/maputnik_translate_01.png
 ![Translateによる影付け][maputnik-translate-01]
