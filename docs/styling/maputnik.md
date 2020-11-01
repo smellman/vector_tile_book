@@ -156,8 +156,8 @@ Layout Properties
 
 例えば、水を真っ青で表現した場合は以下のようになります。
 
-[maputnik-6]: images/maputnik_6.png
-![レイヤー][maputnik-6]
+[maputnik-layers]: images/maputnik_layers.png
+![レイヤー][maputnik-layers]
 
 また、JSONでは以下のように表現されます。
 
@@ -202,12 +202,15 @@ FilterではSource Layerに対して演算子を用いたフィルタリング�
   "type": "line",
   "source": "openmaptiles",
   "source-layer": "transportation",
-  "filter": [
-    "==",
-    "class",
-    "rail"
-  ],
-  /* 省略 */
+  "filter": ["==", "class", "rail"],
+  "layout": {"visibility": "visible"},
+  "paint": {
+    "line-color": "hsl(34, 12%, 66%)",
+    "line-opacity": {
+      "base": 1,
+      "stops": [[11, 0], [16, 1]]
+    }
+  }
 }
 ```
 
@@ -231,8 +234,23 @@ https://openmaptiles.org/schema/#transportation
 - track
 - path
 - raceway
+- motorway_construction
+- trunk_construction
+- primary_construction
+- secondary_construction
+- tertiary_construction
+- minor_construction
+- service_construction
+- track_construction
+- path_construction
+- raceway_construction
 - rail
 - transit
+- cable_car
+- gondola
+- ferry
+- bridge
+- pier
 
 このうち電車の線路は `rail` が相当します。
 そのため、フィルタは以下のようになります。
@@ -290,20 +308,20 @@ https://openmaptiles.org/schema/
 
 演算子については `Mapbox GL Style` の `Specification` を参照してください。
 
-https://www.mapbox.com/mapbox-gl-js/style-spec/#types-filter
+https://docs.mapbox.com/mapbox-gl-js/style-spec/types/#filter
 
 ## レイヤーの順序及び操作
 
 レイヤーは一番左に並んでいます。
 
-上にあるレイヤーから順番にレンダリングをしていくため、Adobe Photoshopのレイヤーとは逆の並びになるのに注意してください。
+上にあるレイヤーから順番にレンダリングをしていくため、Adobe PhotoshopやAdobe illustratorのレイヤーとは逆の並びになるのに注意してください。
 
 例えば、waterというレイヤーを一番下に持っていくと橋を表現した道路よりも上位になってしまうため、橋がレンダリングされないということになります。
 
 各レイヤーには次のように操作が可能となっています。
 
-[maputnik-layer-01]: images/maputnik_layer_01.png
-![レイヤーの操作ボタン][maputnik-layer-01]
+[maputnik-layer-operation]: images/maputnik_layer_operation.png
+![レイヤーの操作ボタン][maputnik-layer-operation]
 
 ### レイヤーの削除、コピー、表示非表示切り替え
 
@@ -360,17 +378,18 @@ Opacity
 
 `Background`は背景を指定します。
 
-https://www.mapbox.com/mapbox-gl-js/style-spec/#layers-background
+https://docs.mapbox.com/mapbox-gl-js/style-spec/#layers-background
 
 以下の`Paint Properites`が利用可能です。
+
+#### Background の Paint Properites の 一覧
+
 
 | プロパティ名 | Mapbox GL Style    | 値     | デフォルト値  | 説明                                       |
 | ------------ | ------------------ | ------ | ------------- | ------------------------------- |
 | Color        | background-color   | 色指定 | `#000000` | 背景色、Patternが指定されると無効になる    |
 | Pattern      | background-pattern | 文字列 | なし          | 背景の塗りつぶしのパターンに使う画像を指定 |
 | Opacity      | background-opacity | 数字   | `1`       | 背景の透過度                               |
-
-: Background の Paint Properites の 一覧
 
 Backgroundは特にFilterなどを指定せずに使います。
 また、レイヤーは一番上にもっていきます。
@@ -380,9 +399,11 @@ Backgroundは特にFilterなどを指定せずに使います。
 `Fill` はポリゴンの塗りつぶしをします。
 建物(building)や水(water)、緑(landcover_wood)などに利用されます。
 
-https://www.mapbox.com/mapbox-gl-js/style-spec/#layers-fill
+https://docs.mapbox.com/mapbox-gl-js/style-spec/layers/#fill
 
 以下の`Paint Properties`が利用可能です。
+
+#### Fill の Paint Properites の 一覧
 
 | プロパティ名     | Mapbox GL Style       | 値                                       | デフォルト値  | 説明                                                                                                                                                                                                                         |
 | ---------------- | --------------------- | ---------------- | ------------- | ------------------------------- |
@@ -394,18 +415,18 @@ https://www.mapbox.com/mapbox-gl-js/style-spec/#layers-fill
 | Translate        | fill-translate        | ピクセルの配列                           | `[0, 0]`  | 塗りつぶすときのオフセット座標(`[x, y]`)を左上を原点として指定する。主に影をつけるときなどに利用する                                                                                                                     |
 | Translate anchor | fill-translate-anchor | enum (`map` もしくは `viewport`) | `map`     | 上記のトランスレートを `map` に関連付けるか、 `viewport` に関連付けるかを指定する。`map`の場合は地図を回転させても同じようにずれるが、`viewport`では地図を回転させるとそれに合わせてトランスレートが変動する |
 
-: Fill の Paint Properites の 一覧
-
 ### type: Line
 
 `Line`はポリゴンなどの線を描画する時に利用します。
 
-https://www.mapbox.com/mapbox-gl-js/style-spec/#layers-line
+https://docs.mapbox.com/mapbox-gl-js/style-spec/layers/#line
 
 Lineには以下の4つの`Layout Properties`が存在しますが、
 基本的な考え方は `SVG 1.1`の`Stroke Properties`と同じです。
 
 https://triple-underscore.github.io/SVG11/painting.html#StrokeProperties
+
+### Line の Layout Properties
 
 | プロパティ名 | Mapbox GL Style  | SVG 1.1           | 値                         | デフォルト値 | 説明                                                                                                                          |
 | ----------------- | ---------------- | ----------------- | ---------------- | ------------ | ------------------------------ |
@@ -414,9 +435,9 @@ https://triple-underscore.github.io/SVG11/painting.html#StrokeProperties
 | Miter limit       | line-miter-limit | stroke-miterlimit | 数字                       | `2`      | line-join=miterの場合に２つのパス区分の継ぎ目が鋭角の場合に line-join を miter から bevel とするための比率                    |
 | Round limit       | line-round-limit | 対応なし          | 数字                       | `1.05`   | line-join=roundの場合に２つのパス区分の継ぎ目が浅い角度(shallow angle)の場合に line-join を round から miter とするための比率 |
 
-: Line の Layout Properties
-
 `line-round-limit`のみSVG 1.1に対応する概念がありません。
+
+#### Line の Paint properties
 
 Lineで使われる`Paint Properties`は以下のものがあります。
 
@@ -433,14 +454,12 @@ Lineで使われる`Paint Properties`は以下のものがあります。
 | Translate anchor | line-translate-anchor | enum (map, viewport) | `map`     | 上記のトランスレートを `map` に関連付けるか、 `viewport` に関連付けるかを指定する。`map`の場合は地図を回転させても同じようにずれるが、`viewport`では地図を回転させるとそれに合わせてトランスレートが変動する |
 | Gap width        | line-gap-width        | ピクセル                                         | `0`              | ラインの実際のパスの外側に枠となる線を描画するときに内側のギャップのサイズを指定する。簡単に二車線道路のようなものを書くことができるが、データと合わないケースになりやすいので注意が必要                                     |
 
-: Line の Paint properties
-
 ### type: Symbol
 
 `Symbol` はPOIなどのPointや道路や建物の名前を表示するのに使います。
 そのため、POINT, LINESTRING, POLYGONのいずれも利用することができます。
 
-https://www.mapbox.com/mapbox-gl-js/style-spec/#layers-symbol
+https://docs.mapbox.com/mapbox-gl-js/style-spec/#layers-symbol
 
 また、テキストや画像を使うことができるため、MaputnikではLayout Properties及びPaint Propertiesが細かく分類されているという特長があります。
 
@@ -454,13 +473,17 @@ https://www.mapbox.com/mapbox-gl-js/style-spec/#layers-symbol
 
 以下が利用できる全てのプロパティです。
 
+#### Symbol の General layout properties 一覧
+
+
 | プロパティ名 | Mapbox GL Style    | 値                 | デフォルト値 | 説明                                                                                                                                                                                                                                                                   |
 | ------------ | ------------------ | ------------ | ------- | --------------------------------- |
 | Placement    | symbol-placement   | enum (point, line) | `point`  | point の場合、ラベルはジオメトリが配置されているポイントに配置され、 line の場合はラインの座標に沿って配置されます。これは LineString か Polygon のジオメトリのみで利用可能です                                                                                        |
 | Spacing      | symbol-spacing     | ピクセル           | `250`    | ２つの symbol が配置されている間の距離を指定します                                                                                                                                                                                                                     |
 | Avoid edges  | symbol-avoid-edges | boolean            | `true`   | もし true なら、 symbol 同士はお互いが衝突しないようタイルのエッジをクロスしません。これはレイヤーがベクタタイルで衝突を防ぐための十分な padding を持っていないレイヤーまたは point の symbol レイヤーが line の symbol レイヤーのあとに配置される場合に推奨されます。 |
 
-: Symbol の General layout properties 一覧
+#### Symbol の Text layout properites の 一覧
+
 
 | プロパティ名       | Mapbox GL Style         | 値                                                                                      | デフォルト値                                      | 説明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | ------------------ | ----------------------- | ------------------------ | ----------------- | ------------------------------------------------ |
@@ -484,7 +507,7 @@ https://www.mapbox.com/mapbox-gl-js/style-spec/#layers-symbol
 | Offset             | text-offset             | ピクセルの配列                                                                          | `0,0`                                         | テキストを中心地点からずらすオフセットを指定します。正の数は右下にずらし、負の数は左上にずらします                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | Optional           | text-optional           | boolean                                                                                 | `false`                                       | icon-image が必要です。 もし true ならテキストが他の symbol のテキストと衝突してアイコンが衝突していない場合、テキストなしでアイコンだけ表示します(テキストをオプション扱いにします)                                                                                                                                                                                                                                                                                                                                                           |
 
-: Symbol の Text layout properites の 一覧
+#### Symbol の Icon layout properites の 一覧
 
 | プロパティ名       | Mapbox GL Style         | 値                               | デフォルト値   | 説明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | ------------------ | -------------------- | -------------------- | -------------- | --------------------------------- |
@@ -501,7 +524,7 @@ https://www.mapbox.com/mapbox-gl-js/style-spec/#layers-symbol
 | Keep upright       | icon-keep-upright       | boolean                          | `false`    | icon-rotation-alignment が map でかつ symbol-placement = line である必要があります。 もし true なら、 アイコンが上下反対にならないよう垂直にアイコンを傾けます                                                                                                                                                                                                                                                                                                                                                     |
 | Offset             | icon-offset             | ピクセルの配列                   | `0,0`      | 中心地点からアイコンのオフセットの距離を指定します。正の数であれば右下に移動、負の数なら左上に移動します。 icon-rotate を組み合わせた場合、 回転した方向の向きにオフセットします                                                                                                                                                                                                                                                                                                                                   |
 
-: Symbol の Icon layout properites の 一覧
+#### Symbol の Text paint properties の 一覧
 
 
 | プロパティ名     | Mapbox GL Style       | 値                   | デフォルト値           | 説明                                                                                                                                                                                                                         |
@@ -515,7 +538,7 @@ https://www.mapbox.com/mapbox-gl-js/style-spec/#layers-symbol
 | Translate anchor | text-translate-anchor | enum (map, viewport) | `map`              | 上記のトランスレートを `map` に関連付けるか、 `viewport` に関連付けるかを指定する。`map`の場合は地図を回転させても同じようにずれるが、`viewport`では地図を回転させるとそれに合わせてトランスレートが変動する |
 
 
-: Symbol の Text paint properties の 一覧
+#### Symbol の Icon paint properties の 一覧
 
 | プロパティ名     | Mapbox GL Style       | 値                   | デフォルト値           | 説明                                                                                                                                                                                                                         |
 | ---------------- | --------------------- | -------------------- | ---------------------- | ----------------------------------- |
@@ -527,10 +550,6 @@ https://www.mapbox.com/mapbox-gl-js/style-spec/#layers-symbol
 | Translate        | icon-translate        | ピクセルの配列       | `0,0`              | アイコンの中心位置が初期値からどれだけ移動させるかを指定します。正の数は右下に移動、負の数は左上に移動します                                                                                                                 |
 | Translate anchor | icon-translate-anchor | enum (map, viewport) | `map`              | 上記のトランスレートを `map` に関連付けるか、 `viewport` に関連付けるかを指定する。`map`の場合は地図を回転させても同じようにずれるが、`viewport`では地図を回転させるとそれに合わせてトランスレートが変動する |
 
-: Symbol の Icon paint properties の 一覧
-
-
-
 
 # テクニック
 
@@ -540,7 +559,7 @@ https://www.mapbox.com/mapbox-gl-js/style-spec/#layers-symbol
 Mapbox GL Styleではズームレベルごとにプロパティを設定することでこの動作を実現します。
 Mapbox GL Styleではこの仕組みを `function` と定義しています。
 
-https://www.mapbox.com/mapbox-gl-js/style-spec/#types-function
+https://docs.mapbox.com/mapbox-gl-js/style-spec/types/#function
 
 Klokantech Basicの `road_trunk_primary` では `line-width` の値を以下のように設定しています。
 
@@ -587,8 +606,8 @@ Klokantech Basicの `road_trunk_primary` では `line-width` の値を以下の�
 
 この値を変更していくのですが、入力時に値の検証が即時にされるため、高いズームレベルから編集をしていきます。
 
-1. zoom 10 -> zoom 16, value 1 -> 3
-2. zoom 6 -> zoom 11, valueはそのまま
+1. zoom 10: value 1
+2. zoom 16: value 3
 
 これで線の幅が 1 〜 3 pixel になるようになりましたが、 `base` の値はUIから追加や編集はできません。
 そのため、JSONを直に編集する必要があります。
@@ -607,8 +626,8 @@ Klokantech Basicの `road_trunk_primary` では `line-width` の値を以下の�
 2. building-shadowのColorを元の色よりも濃い目にする
 3. building-shadowのTranslateでx, yを2か3ぐらいの値を入力する
 
-[maputnik-translate-01]: images/maputnik_translate_01.png
-![Translateによる影付け][maputnik-translate-01]
+[maputnik-translate]: images/maputnik_translate.png
+![Translateによる影付け][maputnik-translate]
 
 Translateの値をあまり大きくしないのがポイントです。何故なら余り離れてしまうと影としては不自然に見えてしまうからです。
 
@@ -619,15 +638,15 @@ Translateの値をあまり大きくしないのがポイントです。何故�
 今回は Klokantech Basicの路線の表示である `railway` を対象に行います。
 実際の作業は以下の手順で行います。
 
-1. `railway` を複製して、複製したレイヤーが下に配置されるようにする
+1. `railway` を複製して、複製したレイヤーが下に(つまりMaputnik上では上に)配置されるようにする
 2. 複製したレイヤーの `Width` に `4` をセット
 3. 元のレイヤーの `Width` に `2` をセット
 4. 元のレイヤーの `Color` に白い色をセット
 5. 元のレイヤーの `Dasharray` の `Add Value` を二回押す(２つの配列が作成される)
 6. それぞれの `Dasharray` に `2` をセット
 
-[maputnik-dasharray-01]: images/maputnik_dasharray_01.png
-![Dasharrayによるゼブラ模様の作成][maputnik-dasharray-01]
+[maputnik-dasharray]: images/maputnik_dasharray.png
+![Dasharrayによるゼブラ模様の作成][maputnik-dasharray]
 
 ポイントは先にレンダリングされるレイヤーの幅を長くして、次に幅が短いレイヤーを重ねることです。
 
