@@ -6,10 +6,10 @@
 
 ## Ubuntu
 
-apt-getコマンドでdockerをインストールし、サービスを起動します。
+aptコマンドでdockerをインストールし、サービスを起動します。
 
 ```bash
-sudo apt-get install docker.io
+sudo apt install docker.io
 sudo systemctl start docker
 ```
 
@@ -34,7 +34,7 @@ docker run hello-world
 最後にdocker-composeをインストールします。
 
 ```bash
-sudo apt-get install curl
+sudo apt install curl
 sudo curl -L "https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 ```
@@ -53,10 +53,10 @@ docker-composeコマンドはDocker Desktopに含まれます。
 
 ## Raspberry Pi (Rasbian OS)
 
-apt-getコマンドでdockerをインストールし、サービスを起動します。
+aptコマンドでdockerをインストールし、サービスを起動します。
 
 ```bash
-sudo apt-get install docker.io
+sudo apt install docker.io
 sudo service docker start
 ```
 

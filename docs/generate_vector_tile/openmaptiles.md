@@ -64,19 +64,25 @@ git checkout -b v3.11 refs/tags/v3.11
 docker-compose pull
 ```
 
+あとは動作チェックのために、`quickstart.sh`を実行します。
+
+```
+./quickstart.sh
+```
+
 これでセットアップは完了です。
 
 # タイルの作成
 
-openmaptilesではquickstart.shを通して以下の作業をします。
+openmaptilesでは`quickstart.sh`を通して以下の作業をします。
 
 - インポート先となるPostgreSQLのインスタンスを起動
 - OpenStreetMapのデータを[geofabrikのミラー](http://download.geofabrik.de)からダウンロード
-- Natural EarthなどのOpenStreetMap以外で必要なデータのダウンロードとインポート
 - layersの定義に沿って[imposm3](https://github.com/omniscale/imposm3)を使ってOSMデータをインポート
+- PostgreSQLでプロセッシング
 - `Mapbox Vector Tile`を生成して `data/tiles.mbtiles` へ格納
 
-また、デフォルトではズームレベル 7 のタイルまでしか作成しないため、事前に .env にある`QUICKSTART_MAX_ZOOM`の値を変更しておく必要があります。
+また、デフォルトではズームレベル 7 のタイルまでしか作成しないため(注: v3.12から以下の作業が必要無くなる予定です)、事前に `.env` にある`QUICKSTART_MAX_ZOOM`の値を変更しておく必要があります。
 
 ```bash
 vi .env
@@ -117,11 +123,10 @@ make list
 ## タイルの再作成
 
 最新のデータを使ってタイルを再度作成する場合は一度作成したタイルや設定ファイルを削除する必要があります。
-また、dockerで作成されるため、ディレクトリがroot権限で作成されるため、以下のようにします。
 
 ```bash
 cd openmaptiles
-sudo rm -fr data
+rm -fr data
 ./quickstart.sh japan
 ```
 

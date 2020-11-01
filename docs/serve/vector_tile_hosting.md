@@ -95,7 +95,7 @@ mv fonts-gh-pages fonts
 rm gh-pages.zip
 ```
 
-次に`sprite`画像を取得します。
+次に`sprite`画像及びjsonファイルを取得します。
 
 ```
 mkdir sprites
