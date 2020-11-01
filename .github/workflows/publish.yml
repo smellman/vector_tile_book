@@ -27,4 +27,10 @@ jobs:
           rm -fr .git
           git config --global user.name "Taro Matsuzawa"
           git config --global user.email "btm@tech.email.ne.jp"
-          cd _book && git init . && touch .nojekyll && git add . && git commit --quiet -m "Deploy from Github Action" && git push --force https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY master:gh-pages > /dev/null 2>&1
+          git init .
+          touch .nojekyll
+          rm -fr .editorconfig .github .gitignore .vscode README.md SUMMARY.md docs node_modules package*
+          mv _book/* .
+          rm -fr _book
+          git add .
+          git commit --quiet -m "Deploy from Github Action" && git push --force https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY master:gh-pages > /dev/null 2>&1
