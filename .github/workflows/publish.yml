@@ -24,6 +24,7 @@ jobs:
         run: npx honkit build
       - name: push to gh-pages
         run: |
+          rm -fr .git
           git config --global user.name "Taro Matsuzawa"
           git config --global user.email "btm@tech.email.ne.jp"
-          cd _book && git init . && touch .nojekyll && git add . && git commit --quiet -m "Deploy from Github Action" &&           git push --force https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY master:gh-pages > /dev/null 2>&1
+          cd _book && git init . && touch .nojekyll && git add . && git commit --quiet -m "Deploy from Github Action" && git push --force https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY master:gh-pages > /dev/null 2>&1
