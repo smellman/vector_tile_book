@@ -15,3 +15,17 @@
 現時点の著者は以下の通り。
 
 - Taro Matsuzawa: OSGeo.JP/OSMFJ/jus/Georepublic [twitter](https://twitter.com/smellman)
+
+## 本レポジトリについて
+
+本レポジトリは [HonKit](https://github.com/honkit/honkit/)を用いてドキュメントをビルドしています。
+
+ローカルでの閲覧及びビルドは以下の手順で行えます。
+
+```
+git clone https://github.com/smellman/vector_tile_book.git
+cd vector_tile_book
+npm install
+npx honkit serve
+npx honkit build
+```

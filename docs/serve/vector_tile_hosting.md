@@ -33,9 +33,9 @@ scp data/tiles.mbtiles hogehoge@example.com:~/
 
 ## サービスの確認
 
-まず、Dockerを使って ```tileserver-gl``` が起動するかを確認します。
+まず、Dockerを使って `tileserver-gl` が起動するかを確認します。
 
-サーバにログインして、mbtilesファイルがあるディレクトリで以下のようにして ```tileserver-gl ```のDocker イメージを起動します。
+サーバにログインして、mbtilesファイルがあるディレクトリで以下のようにして `tileserver-gl `のDocker イメージを起動します。
 
 ```bash
 docker run -it -v $(pwd):/data -p 8080:80 klokantech/tileserver-gl --verbose
@@ -49,7 +49,7 @@ curl http://localhost:8080 | grep TileServer
 
 grepにひっかかれば成功です。
 
-## ```tileserver-gl``` の構成
+## tileserver-glの構成
 
 tileserver-glでは以下のような構成となります。
 
