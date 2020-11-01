@@ -1,0 +1,36 @@
+name: Publish
+
+# Publish npm and dockerhub when Release Pull Request is merged
+#
+# https://hub.docker.com/r/honkit/honkit
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  publish:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - name: npm install
+        run: npm install
+      - name: build docs
+        run: npx honkit build
+      - name: push to gh-pages
+        run: |
+          rm -fr .git
+          git config --global user.name "Taro Matsuzawa"
+          git config --global user.email "btm@tech.email.ne.jp"
+          git init .
+          touch .nojekyll
+          mv _book/* .
+          rm -fr _book
+          git add .
+          git commit --quiet -m "Deploy from Github Action"
+          git push --force https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY master:gh-pages > /dev/null 2>&1
