@@ -14,6 +14,11 @@
 
 * [Vectorタイル配信](docs/serve/vector_tile_hosting.md)
 
+## 仕様など
+
+* [タイルについて](docs/spec/tile.md)
+* [mbtilesについて](docs/spec/mbtiles.md)
+
 ## ナレッジ
 
 * [Sprite URLについて](docs/knowladge/sprite_url.md)
