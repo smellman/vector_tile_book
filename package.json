@@ -1,5 +1,5 @@
 {
-  "name": "tmp",
+  "name": "vector_tile_book",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,6 +10,6 @@
   "author": "Taro Matsuzawa <btm@tech.email.ne.jp> (https://smellman.hatenablog.com/)",
   "license": "ISC",
   "devDependencies": {
-    "honkit": "^3.6.8"
+    "honkit": "^3.6.17"
   }
 }
