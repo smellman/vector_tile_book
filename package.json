@@ -10,6 +10,6 @@
   "author": "Taro Matsuzawa <btm@tech.email.ne.jp> (https://smellman.hatenablog.com/)",
   "license": "ISC",
   "devDependencies": {
-    "honkit": "^3.6.17"
+    "honkit": "^3.6.21"
   }
 }
