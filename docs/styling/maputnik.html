@@ -1,0 +1,1395 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Maputnikによるスタイリング · HonKit</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 4.0.4">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../serve/vector_tile_hosting.html" />
+    
+    
+    <link rel="prev" href="../generate_vector_tile/openmaptiles.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    はじめに
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../prepare/docker.html">
+            
+                <a href="../prepare/docker.html">
+            
+                    
+                    Dockerをインストール
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Vector Tileの作成</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../generate_vector_tile/openmaptiles.html">
+            
+                <a href="../generate_vector_tile/openmaptiles.html">
+            
+                    
+                    OpenMapTiles
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">スタイリング</li>
+        
+        
+    
+        <li class="chapter active" data-level="3.1" data-path="maputnik.html">
+            
+                <a href="maputnik.html">
+            
+                    
+                    Maputnikによるスタイリング
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">配信</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../serve/vector_tile_hosting.html">
+            
+                <a href="../serve/vector_tile_hosting.html">
+            
+                    
+                    Vectorタイル配信
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">仕様など</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../spec/tile.html">
+            
+                <a href="../spec/tile.html">
+            
+                    
+                    タイルについて
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../spec/mbtiles.html">
+            
+                <a href="../spec/mbtiles.html">
+            
+                    
+                    mbtilesについて
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">ナレッジ</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../knowladge/sprite_url.html">
+            
+                <a href="../knowladge/sprite_url.html">
+            
+                    
+                    Sprite URLについて
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="../knowladge/glyphs_url.html">
+            
+                <a href="../knowladge/glyphs_url.html">
+            
+                    
+                    Glyphs URLについて
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Maputnikによるスタイリング</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="maputnikによるベクトルタイルのデザイン編集">Maputnikによるベクトルタイルのデザイン編集</h1>
+<p>ベクトルタイル(Mapbox Vector Tile)及び<code>tileserver-gl</code>ではMapbox GL Styleを使って地図のデザインを行います。</p>
+<p>Mapbox GL Styleに対応したエディタではMapbox社のMapbox Studioが有名ですが、
+こちらはWebサービスとして提供されているものとなり、自分たちで作成したタイルをトップに選択できないという制限があります(旧バージョンであればホストすることができます)。</p>
+<p>そのため、今回はMapbox StudioのOSSクローンであるMaputnikとOpenMapTilesを例に説明をします。</p>
+<p><a href="https://maputnik.github.io/" target="_blank">https://maputnik.github.io/</a></p>
+<h2 id="maputnikについて">Maputnikについて</h2>
+<p>Maputnik自体はReactを使ったシングルページアプリケーションとして構築されています。
+そのため、ローカル内で動作をさせる方法もありますが、今回は <code>OpenMapTiles</code> が公開してるMaputnikのサイトを使います。</p>
+<p><a href="https://maputnik.github.io/editor/" target="_blank">https://maputnik.github.io/editor/</a></p>
+<p>なお、ローカル内での動作方法については Maputnik-CLI の使い方を参照してください。</p>
+<p><a href="https://github.com/maputnik/editor/wiki/Maputnik-CLI" target="_blank">https://github.com/maputnik/editor/wiki/Maputnik-CLI</a></p>
+<h2 id="今回利用するopenmaptilesの設定について">今回利用するOpenMapTilesの設定について</h2>
+<p>今回はOSMFJが運用するサーバ、<code>https://tile2.openstreetmap.jp/</code>をターゲットとします。
+運用上停止や、ドメインの変更の可能性がありますのでご注意ください。</p>
+<p>自身で運用するものを対象とする場合、以下の項目を自分のサーバに置き換えてください。</p>
+<ul>
+<li>TileJSON URL</li>
+<li>Sprite URL</li>
+<li>Glyphs URL</li>
+</ul>
+<h1 id="maputnikの基本">Maputnikの基本</h1>
+<h2 id="新規ファイル作成">新規ファイル作成</h2>
+<p>新しいデザインを作成する場合はまず最初にベースとするデザインファイルを<code>Gallery Styles</code>の中から選択して開きます。
+なお、この時に3Dを含むデザインファイル(現在ではOSM Liberty)を使わないようにしてください。
+3Dの表現を含んでいる場合、<code>tileserver-gl</code>でのレンダリングで問題が生じる可能性があります。</p>
+<p><img src="images/maputnik_1.png" alt="Galleryから選択"></p>
+<p>今回はGalleryからKlokantech Basicを選びます。</p>
+<p>次に地図を日本の場所に移動したあとに画面上部の <code>Sources</code> タブを選択して、 <code>Sources</code> のダイアログを出します。</p>
+<p>ここで、 <code>#openmaptiles</code> に対する <code>TileJSON URL</code> をベクトルタイルサーバを参照するように設定します。</p>
+<p><img src="images/maputnik_2.png" alt="TileJSON URLを書き換え"></p>
+<p><code>TileJSON URL</code>はベクトルタイルサーバのトップからURLをコピーします。</p>
+<p><img src="images/select-tilejson.png" alt="TileJSON URLをコピー"></p>
+<p>今回利用する<code>TileJSON URL</code>は <code>https://tile2.openstreetmap.jp/data/japan.json</code> となります。</p>
+<p>入力を終えたらタブを押すと即時に変更が反映されます。</p>
+<p>次に、フォントとスプライトを変更します。
+画面上部の <code>Style Settings</code> を選択し、 <code>Style Settings</code> のダイアログを出します。</p>
+<p><img src="images/maputnik_3.png" alt="Style Settings"></p>
+<p>ここでは <code>Sprite URL</code> と <code>Glyphs URL</code> の二箇所を書き換えます。
+なお、アイコンを利用しない場合は <code>Sprite URL</code> は利用しません。</p>
+<p>現状では以下の設定が可能です。</p>
+<p>Sprite URL
+:   <code>https://tile2.openstreetmap.jp/styles/osm-bright/sprite</code></p>
+<p>Glyphs URL
+:   <code>https://tile2.openstreetmap.jp/fonts/{fontstack}/{range}.pbf</code></p>
+<p>これで初期設定が完了です。</p>
+<p>あとは一度この段階でスタイルファイルのダウンロードをします。
+画面上部の <code>Export</code> を選択し、 <code>Export Style</code> のダイアログを出します。</p>
+<p><img src="images/maputnik_4.png" alt="Export Style"></p>
+<p>ここではスタイルファイルのダウンロードが可能になっています。
+<code>Download</code>を押してJSONファイルをダウンロードします。</p>
+<h1 id="mapbox-gl-styleの基本">Mapbox GL Styleの基本</h1>
+<p>Mapbox GL StyleはJSON形式のファイルとなります。</p>
+<p><a href="https://docs.mapbox.com/mapbox-gl-js/style-spec/" target="_blank">https://docs.mapbox.com/mapbox-gl-js/style-spec/</a></p>
+<h2 id="root要素">Root要素</h2>
+<p>Mapbox GL Styleでは最初にRoot要素を決定します。</p>
+<p>重要となる要素は以下のものです。</p>
+<p>version
+:    Mapbox GL StyleのSpecificationのバージョンを指します</p>
+<p>name
+:    スタイルの名称を指定します</p>
+<p>sources
+:    スタイルファイルが参照するデータソースを指定します。データソースは複数指定可能です。</p>
+<p>glyphs
+:    スタイルファイルが参照するフォントのURLを指定します。詳細は後述する <code>Glyphs URL</code> について を参照してください。</p>
+<p>sprite
+:    スタイルファイルが参照するアイコンのスプライトのURLを指定します。詳細は後述する <code>Sprite URL</code> について を参照してください。</p>
+<p>layers
+:    後述するレイヤーを複数指定します。Maputnikでは主にこのレイヤーの編集を行います。</p>
+<h2 id="レイヤー">レイヤー</h2>
+<p>今回利用するOpenMapTiles及びMapbox GL Styleの組み合わせでは、
+OpenMapTilesが提供してるスキーマに沿ったレイヤーごとにデザインをする仕組みになります。</p>
+<p>レイヤーは概ね以下のものから構成されます。</p>
+<p>ID
+:   レイヤーのID値、他と重複してはいけない</p>
+<p>Type
+:   <code>Background</code>(背景), <code>Fill</code>(ポリゴン), <code>Line</code>(ポリライン), <code>Symbol</code>(POIなどのポイント), <code>Raster</code>(ラスタデータソース), <code>Circle</code>(円), <code>Fill-extrusion</code>(噴出したFill、3Dで利用)のいずれか</p>
+<p>Source
+:   データの元となるソース、今回は <code>openmaptiles</code> に固定</p>
+<p>Source Layer
+:   Sourceに指定したソースの中でレイヤーが利用するデータのレイヤー</p>
+<p>Min zoom
+:   表示される最小のズーム</p>
+<p>Max zoom
+:   表示される最大のズーム</p>
+<p>また、これから以下のものを組み合わせて表示を行います。</p>
+<p>Filter
+:   Source Layerで指定した中でレイヤーが使う条件となる式(複数設定可能)</p>
+<p>Paint Properties
+:   レイヤーをどのように描画するか指定するプロパティ</p>
+<p>Layout Properties
+:   レイヤーをどのように表示するか指定するプロパティ(<code>Line</code>及び<code>Symbol</code>のみ)</p>
+<p>例えば、水を真っ青で表現した場合は以下のようになります。</p>
+<p><img src="images/maputnik_layers.png" alt="レイヤー"></p>
+<p>また、JSONでは以下のように表現されます。</p>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;water&quot;</span>,
+  <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;fill&quot;</span>,
+  <span class="hljs-string">&quot;source&quot;</span>: <span class="hljs-string">&quot;openmaptiles&quot;</span>,
+  <span class="hljs-string">&quot;source-layer&quot;</span>: <span class="hljs-string">&quot;water&quot;</span>,
+  <span class="hljs-string">&quot;filter&quot;</span>: [
+    <span class="hljs-string">&quot;==&quot;</span>,
+    <span class="hljs-string">&quot;$type&quot;</span>,
+    <span class="hljs-string">&quot;Polygon&quot;</span>
+  ],
+  <span class="hljs-string">&quot;paint&quot;</span>: {
+    <span class="hljs-string">&quot;fill-color&quot;</span>: <span class="hljs-string">&quot;rgba(0, 0, 255, 1)&quot;</span>
+  },
+  <span class="hljs-string">&quot;layout&quot;</span>: {}
+}
+</code></pre>
+<p>なお、JSON上での表現では<code>Paint properties</code>は <code>paint</code>、
+<code>Layout properties</code>は <code>layout</code> と表現されますが、
+Maputnik上では<code>type</code>が<code>Symbol</code>の場合は、
+これらのpropertiesを <code>General layout properties</code>、
+<code>Text layout properties</code>、<code>Icon layout properties</code>、
+<code>Text paint properties</code>、<code>Icon paint properties</code>と
+わかりやすく項目を分けるようになっています。</p>
+<p>また、<code>type</code>ごとに<code>Paint properties</code>と<code>Layout properties</code>の順番が変わり、
+また<code>Layout properties</code>の表示が無いものもあります。</p>
+<h3 id="filter">Filter</h3>
+<p>FilterではSource Layerに対して演算子を用いたフィルタリングを行う機能となります。</p>
+<p><code>railway</code> というIDのレイヤーについて見ていきます。</p>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;id&quot;</span>: <span class="hljs-string">&quot;railway&quot;</span>,
+  <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;line&quot;</span>,
+  <span class="hljs-string">&quot;source&quot;</span>: <span class="hljs-string">&quot;openmaptiles&quot;</span>,
+  <span class="hljs-string">&quot;source-layer&quot;</span>: <span class="hljs-string">&quot;transportation&quot;</span>,
+  <span class="hljs-string">&quot;filter&quot;</span>: [<span class="hljs-string">&quot;==&quot;</span>, <span class="hljs-string">&quot;class&quot;</span>, <span class="hljs-string">&quot;rail&quot;</span>],
+  <span class="hljs-string">&quot;layout&quot;</span>: {<span class="hljs-string">&quot;visibility&quot;</span>: <span class="hljs-string">&quot;visible&quot;</span>},
+  <span class="hljs-string">&quot;paint&quot;</span>: {
+    <span class="hljs-string">&quot;line-color&quot;</span>: <span class="hljs-string">&quot;hsl(34, 12%, 66%)&quot;</span>,
+    <span class="hljs-string">&quot;line-opacity&quot;</span>: {
+      <span class="hljs-string">&quot;base&quot;</span>: <span class="hljs-number">1</span>,
+      <span class="hljs-string">&quot;stops&quot;</span>: [[<span class="hljs-number">11</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">16</span>, <span class="hljs-number">1</span>]]
+    }
+  }
+}
+</code></pre>
+<p><img src="images/maputnik_filter_01.png" alt="Filter"></p>
+<p><code>railway</code> は <code>transportation</code> という <code>Source Layer</code>を参照していますが、
+<code>transportation</code>自体には<code>class</code> というフィールドに多くの<code>value</code>が存在しています。</p>
+<p><a href="https://openmaptiles.org/schema/#transportation" target="_blank">https://openmaptiles.org/schema/#transportation</a></p>
+<p>現状では<code>transportation</code>には以下のものが存在しています。</p>
+<ul>
+<li>motorway</li>
+<li>trunk</li>
+<li>primary</li>
+<li>secondary</li>
+<li>tertiary</li>
+<li>minor</li>
+<li>service</li>
+<li>track</li>
+<li>path</li>
+<li>raceway</li>
+<li>motorway_construction</li>
+<li>trunk_construction</li>
+<li>primary_construction</li>
+<li>secondary_construction</li>
+<li>tertiary_construction</li>
+<li>minor_construction</li>
+<li>service_construction</li>
+<li>track_construction</li>
+<li>path_construction</li>
+<li>raceway_construction</li>
+<li>rail</li>
+<li>transit</li>
+<li>cable_car</li>
+<li>gondola</li>
+<li>ferry</li>
+<li>bridge</li>
+<li>pier</li>
+</ul>
+<p>このうち電車の線路は <code>rail</code> が相当します。
+そのため、フィルタは以下のようになります。</p>
+<pre><code class="lang-json"><span class="hljs-string">&quot;filter&quot;</span>: [
+  <span class="hljs-string">&quot;==&quot;</span>,
+  <span class="hljs-string">&quot;class&quot;</span>,
+  <span class="hljs-string">&quot;rail&quot;</span>
+],
+</code></pre>
+<p><code>Filter</code> 自体は <code>演算子, filed, value</code> という並びの配列として表現されます。</p>
+<p>なお、このフィルタは以下の表現の省略系となります。</p>
+<pre><code class="lang-json"><span class="hljs-string">&quot;filter&quot;</span>: [
+  <span class="hljs-string">&quot;all&quot;</span>,
+  [
+    <span class="hljs-string">&quot;==&quot;</span>,
+    <span class="hljs-string">&quot;class&quot;</span>,
+    <span class="hljs-string">&quot;rail&quot;</span>
+  ]
+],
+</code></pre>
+<p>フィルタはデフォルトでは <code>all</code> が指定されていて、これはすべてのフィルタがマッチするという表現になります。</p>
+<p>では、このレイヤーをコピーして、橋になっている部分のみ適応するようフィルタを拡張してみます(レイヤー操作については後述します)。</p>
+<p>まず、右下の<code>Add filter</code>を選択します。すると、Filterが一行追加されます。</p>
+<p><img src="images/maputnik_filter_02.png" alt="Add Filter"></p>
+<p>ここで、 <code>field</code>に <code>brunnel</code> を、 <code>value</code> に <code>bridge</code> を、 <code>演算子</code> は <code>==</code> を指定します。</p>
+<p><img src="images/maputnik_filter_03.png" alt="Filterの記述"></p>
+<p>Filterが適応されているレイヤーを確認するには画面上部の<code>Inspect Mode</code>を選択して<code>Map Mode</code>から<code>Inspect Mode</code>へと切り替えます。</p>
+<p>上記の操作では以下のように<code>bridge</code>のものだけが参照されるよう変化しているのがわかります。</p>
+<p><img src="images/maputnik_filter_04.png" alt="Inspect Modeでの確認"></p>
+<p>このようにFilterを使うケースでは<code>Inspect Mode</code>での確認を頻繁に行います。</p>
+<p>Filterで用いられる<code>scheme</code>は下記サイトを参照してください。</p>
+<p><a href="https://openmaptiles.org/schema/" target="_blank">https://openmaptiles.org/schema/</a></p>
+<p>演算子については <code>Mapbox GL Style</code> の <code>Specification</code> を参照してください。</p>
+<p><a href="https://docs.mapbox.com/mapbox-gl-js/style-spec/types/#filter" target="_blank">https://docs.mapbox.com/mapbox-gl-js/style-spec/types/#filter</a></p>
+<h2 id="レイヤーの順序及び操作">レイヤーの順序及び操作</h2>
+<p>レイヤーは一番左に並んでいます。</p>
+<p>上にあるレイヤーから順番にレンダリングをしていくため、Adobe PhotoshopやAdobe illustratorのレイヤーとは逆の並びになるのに注意してください。</p>
+<p>例えば、waterというレイヤーを一番下に持っていくと橋を表現した道路よりも上位になってしまうため、橋がレンダリングされないということになります。</p>
+<p>各レイヤーには次のように操作が可能となっています。</p>
+<p><img src="images/maputnik_layer_operation.png" alt="レイヤーの操作ボタン"></p>
+<h3 id="レイヤーの削除、コピー、表示非表示切り替え">レイヤーの削除、コピー、表示非表示切り替え</h3>
+<p>レイヤーの削除ボタン(ゴミ箱のアイコン)は選択しているレイヤーを削除します。
+確認などがないため、操作をする時には気をつけてください。
+なお、レイヤーは削除するのではなく非表示で代用するという手もあります。</p>
+<p>レイヤーのコピーボタン(レイヤーが重なっているアイコン)は選択しているレイヤーを複製します。
+複製後のレイヤーは複製したレイヤーの上に配置されますが、
+グループ化されていないレイヤーを複製した際には即座にグループ化されます。
+また、複製後のレイヤーはIDの重複を防ぐために <code>-copy</code> というsuffixが追加されます。</p>
+<p>レイヤーの表示非表示切り替えボタン(目のアイコン)では単に表示と非表示を切り替えます。
+レイヤーが表示から非表示になった場合は、<code>Layout Properties</code>に <code>&quot;visibility&quot;: &quot;none&quot;</code> という値が設定されます。
+逆に非表示から表示になった場合は、<code>Layout Properties</code>に <code>&quot;visibility&quot;: &quot;visible&quot;</code>という値が設定されます。
+なお、<code>&quot;visibility&quot;: &quot;visible&quot;</code>はデフォルト値です。</p>
+<h3 id="レイヤーの順番操作">レイヤーの順番操作</h3>
+<p>レイヤーの順番を操作するにはレイヤーの左にあるアイコンをクリックしたまま上下に動かして、
+挿入したい場所に移動させます。</p>
+<p>この時に同じ<code>Source Layer</code>が参照されているものが上下に並ぶと自動的にグループ化されます。</p>
+<p>また、グループ内に２つしかレイヤーがないレイヤーを違う<code>Source Layer</code>の間に移動させるとグループ化が解除されます。</p>
+<p>なお、一部のレイヤーが上下に動かせないという現象があります。
+その場合はレイヤーを複製してから複製したレイヤーを動かし、その後元のレイヤーを非表示にするなどしてください。</p>
+<h2 id="layout-properties-及び-paint-properties">Layout Properties 及び Paint Properties</h2>
+<p><code>Layout Properties</code> は <code>Line</code> 及び <code>Symbol</code> でレイヤーの編集画面で編集が可能です。
+ただし、仕様においては全ての<code>type</code>で<code>visible</code>という表示非表示を選択するpropertyがあり、
+このpropertyのみレイヤー自体の操作(後述)で扱います。</p>
+<h3 id="paint-propertiesの基本項目">Paint Propertiesの基本項目</h3>
+<p>Paint Propertiesでは以下の項目は多くのところで共通で指定可能です。</p>
+<p>Color
+:    色指定。RGBのHEX表記(#99EEBBなど)やhsl表記(hsl(210, 67%, 85%))、hsla表記(hsla(0, 0%, 89%, 0.56))が可能です。</p>
+<p>Pattern
+:    塗りつぶす画像を指定。指定可能なものはSpriteの名前を用います。</p>
+<p>Opacity
+:    透明度。1が100%(不透明)で0が0%(透明)です。</p>
+<p>これらは共通なので以下では一部説明を省略します。</p>
+<p>では、以下ではそれぞれの<code>type</code>ごとに利用可能な<code>Properties</code>について説明します。</p>
+<h3 id="type-background">type: Background</h3>
+<p><code>Background</code>は背景を指定します。</p>
+<p><a href="https://docs.mapbox.com/mapbox-gl-js/style-spec/#layers-background" target="_blank">https://docs.mapbox.com/mapbox-gl-js/style-spec/#layers-background</a></p>
+<p>以下の<code>Paint Properites</code>が利用可能です。</p>
+<h4 id="background-の-paint-properites-の-一覧">Background の Paint Properites の 一覧</h4>
+<table>
+<thead>
+<tr>
+<th>プロパティ名</th>
+<th>Mapbox GL Style</th>
+<th>値</th>
+<th>デフォルト値</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Color</td>
+<td>background-color</td>
+<td>色指定</td>
+<td><code>#000000</code></td>
+<td>背景色、Patternが指定されると無効になる</td>
+</tr>
+<tr>
+<td>Pattern</td>
+<td>background-pattern</td>
+<td>文字列</td>
+<td>なし</td>
+<td>背景の塗りつぶしのパターンに使う画像を指定</td>
+</tr>
+<tr>
+<td>Opacity</td>
+<td>background-opacity</td>
+<td>数字</td>
+<td><code>1</code></td>
+<td>背景の透過度</td>
+</tr>
+</tbody>
+</table>
+<p>Backgroundは特にFilterなどを指定せずに使います。
+また、レイヤーは一番上にもっていきます。</p>
+<h3 id="type-fill">type: Fill</h3>
+<p><code>Fill</code> はポリゴンの塗りつぶしをします。
+建物(building)や水(water)、緑(landcover_wood)などに利用されます。</p>
+<p><a href="https://docs.mapbox.com/mapbox-gl-js/style-spec/layers/#fill" target="_blank">https://docs.mapbox.com/mapbox-gl-js/style-spec/layers/#fill</a></p>
+<p>以下の<code>Paint Properties</code>が利用可能です。</p>
+<h4 id="fill-の-paint-properites-の-一覧">Fill の Paint Properites の 一覧</h4>
+<table>
+<thead>
+<tr>
+<th>プロパティ名</th>
+<th>Mapbox GL Style</th>
+<th>値</th>
+<th>デフォルト値</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Opacity</td>
+<td>fill-opacity</td>
+<td>数字</td>
+<td><code>1</code></td>
+<td>塗りつぶしの透過度</td>
+</tr>
+<tr>
+<td>Color</td>
+<td>fill-color</td>
+<td>色指定</td>
+<td><code>#000000</code></td>
+<td>塗りつぶしの色、Patternが指定されると無効になる</td>
+</tr>
+<tr>
+<td>Antialias</td>
+<td>fill-antialias</td>
+<td>boolean</td>
+<td><code>true</code></td>
+<td><code>true</code>を指定すると塗りつぶしの枠にアンチエイリアスがかかる</td>
+</tr>
+<tr>
+<td>Outline color</td>
+<td>fill-outline-color</td>
+<td>色指定</td>
+<td>無し</td>
+<td>アンチエイリアスを有効した時にアンチエイリアスがかかる部分の塗りつぶしの色を指定する。従って <code>fill-antialias = true</code> でなければならない。Patternが指定されると無効になる</td>
+</tr>
+<tr>
+<td>Pattern</td>
+<td>fill-pattern</td>
+<td>文字列</td>
+<td>無し</td>
+<td>塗りつぶしのパターンに使う画像を指定</td>
+</tr>
+<tr>
+<td>Translate</td>
+<td>fill-translate</td>
+<td>ピクセルの配列</td>
+<td><code>[0, 0]</code></td>
+<td>塗りつぶすときのオフセット座標(<code>[x, y]</code>)を左上を原点として指定する。主に影をつけるときなどに利用する</td>
+</tr>
+<tr>
+<td>Translate anchor</td>
+<td>fill-translate-anchor</td>
+<td>enum (<code>map</code> もしくは <code>viewport</code>)</td>
+<td><code>map</code></td>
+<td>上記のトランスレートを <code>map</code> に関連付けるか、 <code>viewport</code> に関連付けるかを指定する。<code>map</code>の場合は地図を回転させても同じようにずれるが、<code>viewport</code>では地図を回転させるとそれに合わせてトランスレートが変動する</td>
+</tr>
+</tbody>
+</table>
+<h3 id="type-line">type: Line</h3>
+<p><code>Line</code>はポリゴンなどの線を描画する時に利用します。</p>
+<p><a href="https://docs.mapbox.com/mapbox-gl-js/style-spec/layers/#line" target="_blank">https://docs.mapbox.com/mapbox-gl-js/style-spec/layers/#line</a></p>
+<p>Lineには以下の4つの<code>Layout Properties</code>が存在しますが、
+基本的な考え方は <code>SVG 1.1</code>の<code>Stroke Properties</code>と同じです。</p>
+<p><a href="https://triple-underscore.github.io/SVG11/painting.html#StrokeProperties" target="_blank">https://triple-underscore.github.io/SVG11/painting.html#StrokeProperties</a></p>
+<h3 id="line-の-layout-properties">Line の Layout Properties</h3>
+<table>
+<thead>
+<tr>
+<th>プロパティ名</th>
+<th>Mapbox GL Style</th>
+<th>SVG 1.1</th>
+<th>値</th>
+<th>デフォルト値</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cap</td>
+<td>line-cap</td>
+<td>stroke-linecap</td>
+<td>enum (butt, round, square)</td>
+<td>butt</td>
+<td>ストロークの際に、開いた部分パスの両端に利用される形状</td>
+</tr>
+<tr>
+<td>Join</td>
+<td>line-join</td>
+<td>stroke-linejoin</td>
+<td>enum (bevel, round, miter)</td>
+<td>miter</td>
+<td>ストロークされる際に，それらの角（パス区分の継ぎ目）に利用される形状</td>
+</tr>
+<tr>
+<td>Miter limit</td>
+<td>line-miter-limit</td>
+<td>stroke-miterlimit</td>
+<td>数字</td>
+<td><code>2</code></td>
+<td>line-join=miterの場合に２つのパス区分の継ぎ目が鋭角の場合に line-join を miter から bevel とするための比率</td>
+</tr>
+<tr>
+<td>Round limit</td>
+<td>line-round-limit</td>
+<td>対応なし</td>
+<td>数字</td>
+<td><code>1.05</code></td>
+<td>line-join=roundの場合に２つのパス区分の継ぎ目が浅い角度(shallow angle)の場合に line-join を round から miter とするための比率</td>
+</tr>
+</tbody>
+</table>
+<p><code>line-round-limit</code>のみSVG 1.1に対応する概念がありません。</p>
+<h4 id="line-の-paint-properties">Line の Paint properties</h4>
+<p>Lineで使われる<code>Paint Properties</code>は以下のものがあります。</p>
+<table>
+<thead>
+<tr>
+<th>プロパティ名</th>
+<th>Mapbox GL Style</th>
+<th>値</th>
+<th>デフォルト値</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Opacity</td>
+<td>line-opacity</td>
+<td>数字</td>
+<td><code>1</code></td>
+<td>線の透過度</td>
+</tr>
+<tr>
+<td>Color</td>
+<td>line-color</td>
+<td>色指定</td>
+<td><code>#000000</code></td>
+<td>線の色、Patternが指定されてると無効になる</td>
+</tr>
+<tr>
+<td>Width</td>
+<td>line-width</td>
+<td>ピクセル</td>
+<td><code>1</code></td>
+<td>線の太さ</td>
+</tr>
+<tr>
+<td>Offset</td>
+<td>line-offset</td>
+<td>ピクセル</td>
+<td><code>0</code></td>
+<td>線のオフセット値。線形の地物に対しては線の方向に沿って正の値で右に、負の値で左にずらします。ポリゴンの地物に対しては正の値はinset、負の値はoutsetになります</td>
+</tr>
+<tr>
+<td>Blur</td>
+<td>line-blur</td>
+<td>ピクセル</td>
+<td><code>0</code></td>
+<td>線にぼかしを入れる場合のピクセルを指定</td>
+</tr>
+<tr>
+<td>Dasharray</td>
+<td>line-dasharray</td>
+<td>太さの配列</td>
+<td>なし</td>
+<td>ダッシュパターンの配列、点線の描画や、電車の線路などの白黒が交互に配置される線を描画するのに利用</td>
+</tr>
+<tr>
+<td>Pattern</td>
+<td>line-pattern</td>
+<td>文字列</td>
+<td>なし</td>
+<td>Spriteの画像を指定。画像の幅は２の倍数である必要がある</td>
+</tr>
+<tr>
+<td>Translate</td>
+<td>line-translate</td>
+<td>ピクセルの配列</td>
+<td>なし</td>
+<td>線のオフセット座標(<code>[x, y]</code>)を左上を原点として指定する。これも主に影をつけるときなどに利用する</td>
+</tr>
+<tr>
+<td>Translate anchor</td>
+<td>line-translate-anchor</td>
+<td>enum (map, viewport)</td>
+<td><code>map</code></td>
+<td>上記のトランスレートを <code>map</code> に関連付けるか、 <code>viewport</code> に関連付けるかを指定する。<code>map</code>の場合は地図を回転させても同じようにずれるが、<code>viewport</code>では地図を回転させるとそれに合わせてトランスレートが変動する</td>
+</tr>
+<tr>
+<td>Gap width</td>
+<td>line-gap-width</td>
+<td>ピクセル</td>
+<td><code>0</code></td>
+<td>ラインの実際のパスの外側に枠となる線を描画するときに内側のギャップのサイズを指定する。簡単に二車線道路のようなものを書くことができるが、データと合わないケースになりやすいので注意が必要</td>
+</tr>
+</tbody>
+</table>
+<h3 id="type-symbol">type: Symbol</h3>
+<p><code>Symbol</code> はPOIなどのPointや道路や建物の名前を表示するのに使います。
+そのため、POINT, LINESTRING, POLYGONのいずれも利用することができます。</p>
+<p><a href="https://docs.mapbox.com/mapbox-gl-js/style-spec/#layers-symbol" target="_blank">https://docs.mapbox.com/mapbox-gl-js/style-spec/#layers-symbol</a></p>
+<p>また、テキストや画像を使うことができるため、MaputnikではLayout Properties及びPaint Propertiesが細かく分類されているという特長があります。</p>
+<ul>
+<li>Layout properties<ul>
+<li>General layout properites</li>
+<li>Text layout properties</li>
+<li>Icon layout properties</li>
+</ul>
+</li>
+<li>Paint properties<ul>
+<li>Text paint properties</li>
+<li>Icon paint properties</li>
+</ul>
+</li>
+</ul>
+<p>以下が利用できる全てのプロパティです。</p>
+<h4 id="symbol-の-general-layout-properties-一覧">Symbol の General layout properties 一覧</h4>
+<table>
+<thead>
+<tr>
+<th>プロパティ名</th>
+<th>Mapbox GL Style</th>
+<th>値</th>
+<th>デフォルト値</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Placement</td>
+<td>symbol-placement</td>
+<td>enum (point, line)</td>
+<td><code>point</code></td>
+<td>point の場合、ラベルはジオメトリが配置されているポイントに配置され、 line の場合はラインの座標に沿って配置されます。これは LineString か Polygon のジオメトリのみで利用可能です</td>
+</tr>
+<tr>
+<td>Spacing</td>
+<td>symbol-spacing</td>
+<td>ピクセル</td>
+<td><code>250</code></td>
+<td>２つの symbol が配置されている間の距離を指定します</td>
+</tr>
+<tr>
+<td>Avoid edges</td>
+<td>symbol-avoid-edges</td>
+<td>boolean</td>
+<td><code>true</code></td>
+<td>もし true なら、 symbol 同士はお互いが衝突しないようタイルのエッジをクロスしません。これはレイヤーがベクタタイルで衝突を防ぐための十分な padding を持っていないレイヤーまたは point の symbol レイヤーが line の symbol レイヤーのあとに配置される場合に推奨されます。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="symbol-の-text-layout-properites-の-一覧">Symbol の Text layout properites の 一覧</h4>
+<table>
+<thead>
+<tr>
+<th>プロパティ名</th>
+<th>Mapbox GL Style</th>
+<th>値</th>
+<th>デフォルト値</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Field</td>
+<td>text-field</td>
+<td>文字列</td>
+<td>なし</td>
+<td>テキストラベルに使う値を指定します。地物のプロパティは <code>{field_name}</code> のようなトークンで指定します(トークンによる置換は文字によるテキストフィールドの値のみサポートしています、つまり function は使えません)。</td>
+</tr>
+<tr>
+<td>Font</td>
+<td>text-font</td>
+<td>フォント名の配列</td>
+<td><code>Open Sans Regular,Arial Unicode MS Regular.</code></td>
+<td>表示に使う<code>Font stack</code>を指定します</td>
+</tr>
+<tr>
+<td>Size</td>
+<td>text-size</td>
+<td>ピクセル</td>
+<td><code>16</code></td>
+<td>フォントサイズ</td>
+</tr>
+<tr>
+<td>Line height</td>
+<td>text-line-height</td>
+<td>数字 (em)</td>
+<td><code>1.2</code></td>
+<td>複数行における行間隔の広さを指定します</td>
+</tr>
+<tr>
+<td>Padding</td>
+<td>text-padding</td>
+<td>ピクセル</td>
+<td><code>2</code></td>
+<td>symbol 同士の衝突を防ぐためのテキストの境界の余白となるサイズを指定します</td>
+</tr>
+<tr>
+<td>Allow overlap</td>
+<td>text-allow-overlap</td>
+<td>boolean</td>
+<td><code>false</code></td>
+<td>もし true なら、他の symbol と衝突してもテキストが表示されます</td>
+</tr>
+<tr>
+<td>Ignore placement</td>
+<td>text-ignore-placement</td>
+<td>boolean</td>
+<td><code>false</code></td>
+<td>もし true なら、テキストが衝突しても他の symbol は表示されます</td>
+</tr>
+<tr>
+<td>Pitch alignment</td>
+<td>text-pitch-alignment</td>
+<td>enum (map, viewport, auto)</td>
+<td><code>auto</code></td>
+<td>地図を傾けた時のテキストの方向をしてします。 map を指定した場合はテキストはマップの平面に揃います。 viewport を指定したら viewport の平面に揃います。 auto を指定したら text-rotation-alignment と同じ値を使います</td>
+</tr>
+<tr>
+<td>Rotation alignment</td>
+<td>text-rotation-alignment</td>
+<td>enum (map, viewport, auto)</td>
+<td><code>auto</code></td>
+<td>symbol-placement と組み合わせた場合にテキストを構成している個々のグリフの傾きの挙動を指定します。 map を指定した場合: symbol-placement が point の場合、テキストを東西に揃え、 symbol-placement が line の場合、テキストは X軸 に揃えられます。 viewport を指定した場合: symbol-placement の値に関わらず、グリフは viewport の X軸 に揃えられます。 auto を指定した場合: symbol-placement が point の場合、挙動は viewport を指定したときと同じになり、 symbol-placement が line の場合、挙動は map を指定したときと同じになります</td>
+</tr>
+<tr>
+<td>Max width</td>
+<td>text-max-width</td>
+<td>数字(em)</td>
+<td><code>10</code></td>
+<td>テキストを折り返す最大の横幅を指定します</td>
+</tr>
+<tr>
+<td>Letter spacing</td>
+<td>text-letter-spacing</td>
+<td>数字(em)</td>
+<td><code>0</code></td>
+<td>文字間隔</td>
+</tr>
+<tr>
+<td>Justify</td>
+<td>text-justify</td>
+<td>enum (left, center, right)</td>
+<td><code>center</code></td>
+<td>テキストの整列方法(left: 左寄せ、 center: 中央寄せ、 right: 右寄せ)を指定します</td>
+</tr>
+<tr>
+<td>Anchor</td>
+<td>text-anchor</td>
+<td>enum (center, left, right, top, bottom, top-left, top-right, bottom-left, bottom-right)</td>
+<td><code>center</code></td>
+<td>テキストの配置位置を指定します</td>
+</tr>
+<tr>
+<td>Max angle</td>
+<td>text-max-angle</td>
+<td>数字(角度)</td>
+<td><code>45</code></td>
+<td>symbol-placement = line の時のみ利用、隣接する文字間で変更される最大の角度を指定します</td>
+</tr>
+<tr>
+<td>Rotate</td>
+<td>text-rotate</td>
+<td>数字(角度)</td>
+<td><code>0</code></td>
+<td>テキストを時計回りに回転させる角度を指定します</td>
+</tr>
+<tr>
+<td>Keep upright</td>
+<td>text-keep-upright</td>
+<td>boolean</td>
+<td><code>true</code></td>
+<td>text-rotation-alignment = map でかつ symbol-placement = line の時のみ利用。 true なら テキストが上下反対にならないように垂直に文字を傾けます</td>
+</tr>
+<tr>
+<td>Transform</td>
+<td>text-transform</td>
+<td>enum (none, uppercase, lowercase)</td>
+<td><code>none</code></td>
+<td>テキストを大文字小文字に統一するかどうかを指定します。これは CSS の text-transform と同様の仕組みです</td>
+</tr>
+<tr>
+<td>Offset</td>
+<td>text-offset</td>
+<td>ピクセルの配列</td>
+<td><code>0,0</code></td>
+<td>テキストを中心地点からずらすオフセットを指定します。正の数は右下にずらし、負の数は左上にずらします</td>
+</tr>
+<tr>
+<td>Optional</td>
+<td>text-optional</td>
+<td>boolean</td>
+<td><code>false</code></td>
+<td>icon-image が必要です。 もし true ならテキストが他の symbol のテキストと衝突してアイコンが衝突していない場合、テキストなしでアイコンだけ表示します(テキストをオプション扱いにします)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="symbol-の-icon-layout-properites-の-一覧">Symbol の Icon layout properites の 一覧</h4>
+<table>
+<thead>
+<tr>
+<th>プロパティ名</th>
+<th>Mapbox GL Style</th>
+<th>値</th>
+<th>デフォルト値</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Allow overlap</td>
+<td>icon-allow-overlap</td>
+<td>boolean</td>
+<td><code>false</code></td>
+<td>もし true なら、前に描画されている symbol があってもアイコンを表示します</td>
+</tr>
+<tr>
+<td>Ignore placement</td>
+<td>icon-ignore-placement</td>
+<td>boolean</td>
+<td><code>false</code></td>
+<td>もし true なら、アイコンが衝突したときに他の symbol を表示します</td>
+</tr>
+<tr>
+<td>Optional</td>
+<td>icon-optional</td>
+<td>boolean</td>
+<td><code>false</code></td>
+<td>text-field がある必要があります。もし true なら、他の symbol のアイコンと衝突してかつテキストは衝突しなかった場合、アイコンなしでテキストだけ表示をします(アイコンがオプション扱い)</td>
+</tr>
+<tr>
+<td>Rotation alignment</td>
+<td>icon-rotation-alignment</td>
+<td>enum (map, viewport, auto)</td>
+<td><code>auto</code></td>
+<td>symbol-placement と組み合わせた場合にアイコンの傾きの挙動を指定します。 map を指定した場合: symbol-placement が point の場合、アイコンを東西に揃え、 symbol-placement が line の場合、アイコンはラインの X軸 に揃えられます。 viewport を指定した場合: symbol-placement の値に関わらず、アイコンは viewport の X軸 に揃えられます。 auto を指定した場合: symbol-placement が point の場合、挙動は viewport を指定したときと同じになり、 symbol-placement が line の場合、挙動は map を指定したときと同じになります</td>
+</tr>
+<tr>
+<td>Size</td>
+<td>icon-size</td>
+<td>数字</td>
+<td><code>1</code></td>
+<td>与えられた倍数を元にアイコンのオリジナルサイズから拡大します。新しい画像のピクセルのサイズは icon-size によって乗じます。 1 はオリジナルのサイズ、 3 は 3倍のサイズになります</td>
+</tr>
+<tr>
+<td>Text fit</td>
+<td>icon-text-fit</td>
+<td>enum (none, width, height, both)</td>
+<td><code>none</code></td>
+<td>text-field が必須です。アイコンを関連付けられたテキストに合わせて拡大します。 none ではアイコンは元のアスペクト比で表示されます。 width では テキストの X軸の大きさに合わせて拡大します。 height はテキストの Y軸に合わせて拡大します。 both は X軸とY軸の両方の大きさで拡大します。</td>
+</tr>
+<tr>
+<td>Text fit padding</td>
+<td>icon-text-fit-padding</td>
+<td>ピクセルの配列</td>
+<td><code>0,0,0,0</code></td>
+<td>text-field が必須でかつ、icon-text-fitが none でない必要があります。icon-text-fit で拡大したサイズの余白を時計回り (top, right, bottom, left) に指定します</td>
+</tr>
+<tr>
+<td>Image</td>
+<td>icon-image</td>
+<td>文字列</td>
+<td>なし</td>
+<td>描画する Sprite の画像の名前を指定します。<code>{tokens}</code> はデータプロパティから取得する際の参照として使われます</td>
+</tr>
+<tr>
+<td>Rotate</td>
+<td>icon-rotate</td>
+<td>角度</td>
+<td><code>0</code></td>
+<td>画像を時計回りに回転させる角度を指定します</td>
+</tr>
+<tr>
+<td>Padding</td>
+<td>icon-padding</td>
+<td>ピクセル</td>
+<td><code>2</code></td>
+<td>アイコンが衝突するかどうかを判断する余白の大きさを指定します</td>
+</tr>
+<tr>
+<td>Keep upright</td>
+<td>icon-keep-upright</td>
+<td>boolean</td>
+<td><code>false</code></td>
+<td>icon-rotation-alignment が map でかつ symbol-placement = line である必要があります。 もし true なら、 アイコンが上下反対にならないよう垂直にアイコンを傾けます</td>
+</tr>
+<tr>
+<td>Offset</td>
+<td>icon-offset</td>
+<td>ピクセルの配列</td>
+<td><code>0,0</code></td>
+<td>中心地点からアイコンのオフセットの距離を指定します。正の数であれば右下に移動、負の数なら左上に移動します。 icon-rotate を組み合わせた場合、 回転した方向の向きにオフセットします</td>
+</tr>
+</tbody>
+</table>
+<h4 id="symbol-の-text-paint-properties-の-一覧">Symbol の Text paint properties の 一覧</h4>
+<table>
+<thead>
+<tr>
+<th>プロパティ名</th>
+<th>Mapbox GL Style</th>
+<th>値</th>
+<th>デフォルト値</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Color</td>
+<td>text-color</td>
+<td>色</td>
+<td><code>#000000</code></td>
+<td>テキストの色</td>
+</tr>
+<tr>
+<td>Opacity</td>
+<td>text-opacity</td>
+<td>数字</td>
+<td><code>1</code></td>
+<td>テキストの透過度</td>
+</tr>
+<tr>
+<td>Halo color</td>
+<td>text-halo-color</td>
+<td>色</td>
+<td><code>rgba(0, 0, 0, 0)</code></td>
+<td>テキストの囲う色、これは背景から見やすくするために使われます</td>
+</tr>
+<tr>
+<td>Halo width</td>
+<td>text-halo-width</td>
+<td>ピクセル</td>
+<td><code>0</code></td>
+<td>フォントのアウトラインを囲う長さ。最大幅はフォントサイズの四分の一です</td>
+</tr>
+<tr>
+<td>Halo blur</td>
+<td>text-halo-blur</td>
+<td>ピクセル</td>
+<td><code>0</code></td>
+<td>テキストの囲いが外側にフェードアウトしていくときの長さを指定します</td>
+</tr>
+<tr>
+<td>Translate</td>
+<td>text-translate</td>
+<td>ピクセルの配列</td>
+<td><code>0,0</code></td>
+<td>テキストの中心位置が初期値からどれだけ移動させるかを指定します。正の数は右下に移動、負の数は左上に移動します</td>
+</tr>
+<tr>
+<td>Translate anchor</td>
+<td>text-translate-anchor</td>
+<td>enum (map, viewport)</td>
+<td><code>map</code></td>
+<td>上記のトランスレートを <code>map</code> に関連付けるか、 <code>viewport</code> に関連付けるかを指定する。<code>map</code>の場合は地図を回転させても同じようにずれるが、<code>viewport</code>では地図を回転させるとそれに合わせてトランスレートが変動する</td>
+</tr>
+</tbody>
+</table>
+<h4 id="symbol-の-icon-paint-properties-の-一覧">Symbol の Icon paint properties の 一覧</h4>
+<table>
+<thead>
+<tr>
+<th>プロパティ名</th>
+<th>Mapbox GL Style</th>
+<th>値</th>
+<th>デフォルト値</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Color</td>
+<td>icon-color</td>
+<td>色</td>
+<td><code>#000000</code></td>
+<td>アイコンの色、SDFアイコンのみ利用可能</td>
+</tr>
+<tr>
+<td>Opacity</td>
+<td>icon-opacity</td>
+<td>数字</td>
+<td><code>1</code></td>
+<td>描画されたアイコンの透過度</td>
+</tr>
+<tr>
+<td>Helo color</td>
+<td>icon-halo-color</td>
+<td>色</td>
+<td><code>rgba(0, 0, 0, 0)</code></td>
+<td>アイコンの囲いの色を指定します。SDFアイコンのみ利用可能です</td>
+</tr>
+<tr>
+<td>Helo width</td>
+<td>icon-halo-width</td>
+<td>ピクセル</td>
+<td><code>0</code></td>
+<td>アイコンのアウトラインを囲う長さ</td>
+</tr>
+<tr>
+<td>Helo blur</td>
+<td>icon-halo-blur</td>
+<td>ピクセル</td>
+<td><code>0</code></td>
+<td>アイコンの囲いが外側にフェードアウトしていくときの長さを指定します</td>
+</tr>
+<tr>
+<td>Translate</td>
+<td>icon-translate</td>
+<td>ピクセルの配列</td>
+<td><code>0,0</code></td>
+<td>アイコンの中心位置が初期値からどれだけ移動させるかを指定します。正の数は右下に移動、負の数は左上に移動します</td>
+</tr>
+<tr>
+<td>Translate anchor</td>
+<td>icon-translate-anchor</td>
+<td>enum (map, viewport)</td>
+<td><code>map</code></td>
+<td>上記のトランスレートを <code>map</code> に関連付けるか、 <code>viewport</code> に関連付けるかを指定する。<code>map</code>の場合は地図を回転させても同じようにずれるが、<code>viewport</code>では地図を回転させるとそれに合わせてトランスレートが変動する</td>
+</tr>
+</tbody>
+</table>
+<h1 id="テクニック">テクニック</h1>
+<h2 id="ズームレベルごとの処理function">ズームレベルごとの処理(function)</h2>
+<p>線やテキストなどはズームインをすると拡大するように設定するのが一般的です。
+Mapbox GL Styleではズームレベルごとにプロパティを設定することでこの動作を実現します。
+Mapbox GL Styleではこの仕組みを <code>function</code> と定義しています。</p>
+<p><a href="https://docs.mapbox.com/mapbox-gl-js/style-spec/types/#function" target="_blank">https://docs.mapbox.com/mapbox-gl-js/style-spec/types/#function</a></p>
+<p>Klokantech Basicの <code>road_trunk_primary</code> では <code>line-width</code> の値を以下のように設定しています。</p>
+<pre><code class="lang-json"><span class="hljs-string">&quot;line-width&quot;</span>: {
+  <span class="hljs-string">&quot;base&quot;</span>: <span class="hljs-number">1.4</span>,
+  <span class="hljs-string">&quot;stops&quot;</span>: [
+    [
+      <span class="hljs-number">6</span>,
+      <span class="hljs-number">0.5</span>
+    ],
+    [
+      <span class="hljs-number">20</span>,
+      <span class="hljs-number">30</span>
+    ]
+  ]
+}
+</code></pre>
+<p><code>stops</code> がズームレベルごとの大きさを指す配列となり、 <code>[zoom, value]</code> と表現しています。
+また、上記の例ではズームレベルが6の時に 0.5 pixel の幅に、ズームレベルが20の時に 30 pixel の幅になるように設定されています。
+ズームレベルが7以上20未満の間は 0.5 〜 30 pixel の間を値になるようになります。
+なお、ベクトルレンダリングでのズームレベルは切り捨てとなるため、ズームレベル 6.6 などでも 0.5 pixel を維持します。
+ただし、ラスタレンダリングの場合はズームレベルで小数点がないため、単純に間の数字になるとだけ考えてください。</p>
+<p><code>base</code> はズームレベルごとの増加の割合を設定する指数関数の基底を設定します。
+上記の例で <code>1</code> を設定するとズームレベルが7になった段階で幅が 30 pixel になります。
+逆に <code>2</code> を設定するとなかなか幅が広くならず、ズームレベル20に近づいてやっと広くなるような形になります。
+<code>1.4</code> という値は比較的なめらかにズームをする値になります。</p>
+<p>では、この作業をMaputnikで行います。</p>
+<p>今回は Klokantech Basicの路線の表示である <code>railway</code> を対象に行います。</p>
+<p>まず、<code>Paint properties</code> の <code>Width</code> の左にある <code>Σ</code> を選択します。</p>
+<p><img src="images/maputnik_function_01.png" alt="Zoomのswitch"></p>
+<p>選択をすると以下のように <code>stops</code> が追加されます。</p>
+<p><img src="images/maputnik_function_02.png" alt="stopsの追加"></p>
+<p>この値を変更していくのですが、入力時に値の検証が即時にされるため、高いズームレベルから編集をしていきます。</p>
+<ol>
+<li>zoom 10: value 1</li>
+<li>zoom 16: value 3</li>
+</ol>
+<p>これで線の幅が 1 〜 3 pixel になるようになりましたが、 <code>base</code> の値はUIから追加や編集はできません。
+そのため、JSONを直に編集する必要があります。</p>
+<p><img src="images/maputnik_function_03.png" alt="baseを直接編集"></p>
+<p>これで路線が滑らかに拡大するようになります。</p>
+<h2 id="fill-translateによる2dでの影付け">fill-translateによる2Dでの影付け</h2>
+<p><code>fill-translate</code> の説明で影付けで使われるオプションであると紹介しましたが、実際にbuildingで利用する例を紹介します。
+手順は以下のようになります。</p>
+<ol>
+<li>buildingのレイヤーをコピーして、buildingの１つ下のレイヤーに配置をする。この時building-shadowなどわかりやすいIDを付けておく</li>
+<li>building-shadowのColorを元の色よりも濃い目にする</li>
+<li>building-shadowのTranslateでx, yを2か3ぐらいの値を入力する</li>
+</ol>
+<p><img src="images/maputnik_translate.png" alt="Translateによる影付け"></p>
+<p>Translateの値をあまり大きくしないのがポイントです。何故なら余り離れてしまうと影としては不自然に見えてしまうからです。</p>
+<h2 id="line-dasharrayによるゼブラ模様の作成">line-dasharrayによるゼブラ模様の作成</h2>
+<p><code>line-dasharray</code> は行政区を表現するための点線によく使われる表現ですが、工夫をすると線路のゼブラなどを実現することができます。</p>
+<p>今回は Klokantech Basicの路線の表示である <code>railway</code> を対象に行います。
+実際の作業は以下の手順で行います。</p>
+<ol>
+<li><code>railway</code> を複製して、複製したレイヤーが下に(つまりMaputnik上では上に)配置されるようにする</li>
+<li>複製したレイヤーの <code>Width</code> に <code>4</code> をセット</li>
+<li>元のレイヤーの <code>Width</code> に <code>2</code> をセット</li>
+<li>元のレイヤーの <code>Color</code> に白い色をセット</li>
+<li>元のレイヤーの <code>Dasharray</code> の <code>Add Value</code> を二回押す(２つの配列が作成される)</li>
+<li>それぞれの <code>Dasharray</code> に <code>2</code> をセット</li>
+</ol>
+<p><img src="images/maputnik_dasharray.png" alt="Dasharrayによるゼブラ模様の作成"></p>
+<p>ポイントは先にレンダリングされるレイヤーの幅を長くして、次に幅が短いレイヤーを重ねることです。</p>
+<p>なお、これに似たような方法として<code>Dasharray</code>を設定せずに線を重ねて特長のある線を表現するという方法があります。</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../generate_vector_tile/openmaptiles.html" class="navigation navigation-prev " aria-label="Previous page: OpenMapTiles">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../serve/vector_tile_hosting.html" class="navigation navigation-next " aria-label="Next page: Vectorタイル配信">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Maputnikによるスタイリング","level":"3.1","depth":1,"next":{"title":"Vectorタイル配信","level":"4.1","depth":1,"path":"docs/serve/vector_tile_hosting.md","ref":"docs/serve/vector_tile_hosting.md","articles":[]},"previous":{"title":"OpenMapTiles","level":"2.1","depth":1,"path":"docs/generate_vector_tile/openmaptiles.md","ref":"docs/generate_vector_tile/openmaptiles.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/styling/maputnik.md","mtime":"2022-12-15T07:46:50.884Z","type":"markdown"},"gitbook":{"version":"4.0.4","time":"2022-12-15T07:47:00.442Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,15 @@
+{
+  "name": "vector_tile_book",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Taro Matsuzawa <btm@tech.email.ne.jp> (https://smellman.hatenablog.com/)",
+  "license": "ISC",
+  "devDependencies": {
+    "honkit": "^4.0.4"
+  }
+}

@@ -1,0 +1,424 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>はじめに · HonKit</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 4.0.4">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="docs/prepare/docker.html" />
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter active" data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    はじめに
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="docs/prepare/docker.html">
+            
+                <a href="docs/prepare/docker.html">
+            
+                    
+                    Dockerをインストール
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Vector Tileの作成</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="docs/generate_vector_tile/openmaptiles.html">
+            
+                <a href="docs/generate_vector_tile/openmaptiles.html">
+            
+                    
+                    OpenMapTiles
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">スタイリング</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="docs/styling/maputnik.html">
+            
+                <a href="docs/styling/maputnik.html">
+            
+                    
+                    Maputnikによるスタイリング
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">配信</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="docs/serve/vector_tile_hosting.html">
+            
+                <a href="docs/serve/vector_tile_hosting.html">
+            
+                    
+                    Vectorタイル配信
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">仕様など</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="docs/spec/tile.html">
+            
+                <a href="docs/spec/tile.html">
+            
+                    
+                    タイルについて
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="docs/spec/mbtiles.html">
+            
+                <a href="docs/spec/mbtiles.html">
+            
+                    
+                    mbtilesについて
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">ナレッジ</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="docs/knowladge/sprite_url.html">
+            
+                <a href="docs/knowladge/sprite_url.html">
+            
+                    
+                    Sprite URLについて
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="docs/knowladge/glyphs_url.html">
+            
+                <a href="docs/knowladge/glyphs_url.html">
+            
+                    
+                    Glyphs URLについて
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >はじめに</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="はじめに">はじめに</h1>
+<p>本ドキュメントは<code>Mapbox Vector Tile</code>について以下の項目などを扱う。</p>
+<ul>
+<li>作成技術(OpenMapTiles, 国連ベクトルタイルツールキットなど)</li>
+<li>ベクタタイル配信技術</li>
+<li>ラスタタイル配信技術</li>
+<li>スタイリング</li>
+<li>データフォーマット</li>
+</ul>
+<p>本ドキュメントの目的は<code>Mapbox Vector Tile</code>に対する知見の共有を行うことである。</p>
+<h2 id="著者について">著者について</h2>
+<p>現時点の著者は以下の通り。</p>
+<ul>
+<li>Taro Matsuzawa: OSGeo.JP/OSMFJ/jus/Georepublic <a href="https://twitter.com/smellman" target="_blank">twitter</a></li>
+</ul>
+<h2 id="本レポジトリについて">本レポジトリについて</h2>
+<p>本レポジトリは <a href="https://github.com/honkit/honkit/" target="_blank">HonKit</a>を用いてドキュメントをビルドしています。</p>
+<p>ローカルでの閲覧及びビルドは以下の手順で行えます。</p>
+<pre><code>git clone https://github.com/smellman/vector_tile_book.git
+cd vector_tile_book
+npm install
+npx honkit serve
+npx honkit build
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+                <a href="docs/prepare/docker.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Dockerをインストール">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"はじめに","level":"1.1","depth":1,"next":{"title":"Dockerをインストール","level":"1.2","depth":1,"path":"docs/prepare/docker.md","ref":"docs/prepare/docker.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2022-12-15T07:46:50.816Z","type":"markdown"},"gitbook":{"version":"4.0.4","time":"2022-12-15T07:47:00.442Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

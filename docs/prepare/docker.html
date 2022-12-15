@@ -1,0 +1,463 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Dockerをインストール · HonKit</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 4.0.4">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../generate_vector_tile/openmaptiles.html" />
+    
+    
+    <link rel="prev" href="../../" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    はじめに
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2" data-path="docker.html">
+            
+                <a href="docker.html">
+            
+                    
+                    Dockerをインストール
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Vector Tileの作成</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../generate_vector_tile/openmaptiles.html">
+            
+                <a href="../generate_vector_tile/openmaptiles.html">
+            
+                    
+                    OpenMapTiles
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">スタイリング</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../styling/maputnik.html">
+            
+                <a href="../styling/maputnik.html">
+            
+                    
+                    Maputnikによるスタイリング
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">配信</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../serve/vector_tile_hosting.html">
+            
+                <a href="../serve/vector_tile_hosting.html">
+            
+                    
+                    Vectorタイル配信
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">仕様など</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../spec/tile.html">
+            
+                <a href="../spec/tile.html">
+            
+                    
+                    タイルについて
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../spec/mbtiles.html">
+            
+                <a href="../spec/mbtiles.html">
+            
+                    
+                    mbtilesについて
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">ナレッジ</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../knowladge/sprite_url.html">
+            
+                <a href="../knowladge/sprite_url.html">
+            
+                    
+                    Sprite URLについて
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="../knowladge/glyphs_url.html">
+            
+                <a href="../knowladge/glyphs_url.html">
+            
+                    
+                    Glyphs URLについて
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Dockerをインストール</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="dockerのインストール">Dockerのインストール</h1>
+<p>本ドキュメントでは多くの場面でDockerを使った処理を多く行います。
+そのため、事前にDocker及びdocker-composeを入れておく必要があります。
+なお、Raspberry Piについては現時点ではDockerのみで行います。</p>
+<h2 id="ubuntu">Ubuntu</h2>
+<p>aptコマンドでdockerをインストールし、サービスを起動します。</p>
+<pre><code class="lang-bash">sudo apt install docker.io
+sudo systemctl start docker
+</code></pre>
+<p>次にdocker自体が動作するかを確認します。</p>
+<pre><code class="lang-bash">sudo docker run hello-world
+</code></pre>
+<p>次に一般ユーザで作業をするためにdockerグループにユーザを追加します。</p>
+<pre><code class="lang-bash">sudo usermod -aG docker <span class="hljs-variable">$USER</span>
+</code></pre>
+<p>これで一旦リブートをして再度ログインして、一般ユーザで動作するかを確認します。</p>
+<pre><code class="lang-bash">docker run hello-world
+</code></pre>
+<p>最後にdocker-composeをインストールします。</p>
+<pre><code class="lang-bash">sudo apt install curl
+sudo curl -L <span class="hljs-string">&quot;https://github.com/docker/compose/releases/download/1.25.0/docker-compose-<span class="hljs-subst">$(uname -s)</span>-<span class="hljs-subst">$(uname -m)</span>&quot;</span> -o /usr/<span class="hljs-built_in">local</span>/bin/docker-compose
+sudo chmod +x /usr/<span class="hljs-built_in">local</span>/bin/docker-compose
+</code></pre>
+<h2 id="mac">Mac</h2>
+<p><a href="https://www.docker.com/products/docker-desktop" target="_blank">Docker desktop for Mac</a> をインストールします。</p>
+<p>インストール後にターミナルでdockerが動くのを確認します。</p>
+<pre><code class="lang-bash">docker run hello-world
+</code></pre>
+<p>docker-composeコマンドはDocker Desktopに含まれます。</p>
+<h2 id="raspberry-pi-rasbian-os">Raspberry Pi (Rasbian OS)</h2>
+<p>aptコマンドでdockerをインストールし、サービスを起動します。</p>
+<pre><code class="lang-bash">sudo apt install docker.io
+sudo service docker start
+</code></pre>
+<h1 id="ディスクサイズ対策">ディスクサイズ対策</h1>
+<p>クラウドなどの構成でrootデバイスに対して空き容量が足りない場合は、Dockerイメージを保存する場所を変更する必要があります。</p>
+<p>まずはDockerを停止します。</p>
+<pre><code class="lang-bash">sudo systemctl stop docker
+</code></pre>
+<p>今回は例として <code>/mnt</code> 上にDockerのスペースとなるディレクトリを作成します。</p>
+<pre><code class="lang-bash">sudo mkdir /mnt/docker
+</code></pre>
+<p>次に、<code>/mnt/docker</code>にディスクをマウントしてフォーマットなどをします。</p>
+<p>次に <code>/etc/docker/daemon.json</code> を作成します。
+このファイルは基本となる設定から追加となる設定のみを記述します。
+今回は <code>graph</code> という値を作成します。</p>
+<pre><code class="lang-bash">sudo vim /etc/docker/daemon.json
+cat /etc/docker/daemon.json
+</code></pre>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;graph&quot;</span>: <span class="hljs-string">&quot;/mnt/docker&quot;</span>
+}
+</code></pre>
+<p>最後にDockerを再起動します。</p>
+<pre><code class="lang-bash">sudo systemctl start docker
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../../" class="navigation navigation-prev " aria-label="Previous page: はじめに">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../generate_vector_tile/openmaptiles.html" class="navigation navigation-next " aria-label="Next page: OpenMapTiles">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Dockerをインストール","level":"1.2","depth":1,"next":{"title":"OpenMapTiles","level":"2.1","depth":1,"path":"docs/generate_vector_tile/openmaptiles.md","ref":"docs/generate_vector_tile/openmaptiles.md","articles":[]},"previous":{"title":"はじめに","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/prepare/docker.md","mtime":"2022-12-15T07:46:50.816Z","type":"markdown"},"gitbook":{"version":"4.0.4","time":"2022-12-15T07:47:00.442Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

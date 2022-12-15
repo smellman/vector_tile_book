@@ -1,0 +1,439 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>mbtilesについて · HonKit</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 4.0.4">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../knowladge/sprite_url.html" />
+    
+    
+    <link rel="prev" href="tile.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    はじめに
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../prepare/docker.html">
+            
+                <a href="../prepare/docker.html">
+            
+                    
+                    Dockerをインストール
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Vector Tileの作成</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../generate_vector_tile/openmaptiles.html">
+            
+                <a href="../generate_vector_tile/openmaptiles.html">
+            
+                    
+                    OpenMapTiles
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">スタイリング</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../styling/maputnik.html">
+            
+                <a href="../styling/maputnik.html">
+            
+                    
+                    Maputnikによるスタイリング
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">配信</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../serve/vector_tile_hosting.html">
+            
+                <a href="../serve/vector_tile_hosting.html">
+            
+                    
+                    Vectorタイル配信
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">仕様など</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="tile.html">
+            
+                <a href="tile.html">
+            
+                    
+                    タイルについて
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="5.2" data-path="mbtiles.html">
+            
+                <a href="mbtiles.html">
+            
+                    
+                    mbtilesについて
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">ナレッジ</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../knowladge/sprite_url.html">
+            
+                <a href="../knowladge/sprite_url.html">
+            
+                    
+                    Sprite URLについて
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="../knowladge/glyphs_url.html">
+            
+                <a href="../knowladge/glyphs_url.html">
+            
+                    
+                    Glyphs URLについて
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >mbtilesについて</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="mbtiles-仕様">MBTiles 仕様</h1>
+<p>MBTilesとは、Mapboxが作成した<a href="tile.html">タイル</a>を格納するためのストレージ仕様です。</p>
+<p><a href="https://github.com/mapbox/mbtiles-spec" target="_blank">https://github.com/mapbox/mbtiles-spec</a></p>
+<p><a href="https://sqlite.org/index.html" target="_blank">SQLite</a>を用いており、1つのファイルで多くのタイルを格納することができ、また転送時のコストもタイルに比べて少なくなります[^1}。</p>
+<h2 id="構成">構成</h2>
+<p>ここでは<a href="../generate_vector_tile/openmaptiles.html">OpenMapTiles</a>が出力するmbtilesを例に解説をします。</p>
+<p>まず、SQLiteの構成から確認をします。これは<code>sqlite3</code>コマンドを用います。</p>
+<pre><code>sqlite3 data/tiles.mbtiles
+</code></pre><p><code>.tables</code>コマンドで中身を確認します。</p>
+<pre><code>sqlite&gt; .tables
+geocoder_data  grid_key       grids          keymap         metadata
+grid_data      grid_utfgrid   images         map            tiles
+</code></pre><p>このうち、実際に利用されるのは<code>tiles</code>と<code>metadata</code>となります。他にも<code>grids</code>などがありますが、これは<a href="https://github.com/mapbox/utfgrid-spec" target="_blank">UTFGrid Specitication</a>に利用されているもので、実際のところ使うことはないです<sup><a href="#fn_2" id="reffn_2">2</a></sup>。</p>
+<h3 id="tiles-テーブルビュー">tiles テーブル/ビュー</h3>
+<p>OpenMapTilesでは<code>tiles</code>はViewとして実装されています。</p>
+<pre><code>sqlite&gt; .schema tiles
+CREATE VIEW tiles AS
+    SELECT
+        map.zoom_level AS zoom_level,
+        map.tile_column AS tile_column,
+        map.tile_row AS tile_row,
+        images.tile_data AS tile_data
+    FROM map
+    JOIN images ON images.tile_id = map.tile_id
+/* tiles(zoom_level,tile_column,tile_row,tile_data) */;
+</code></pre><p>アプリケーションから呼び出す側では特にテーブルかビューかを気にする必要はありません。</p>
+<blockquote id="fn_1">
+<sup>1</sup>. 大量のタイルを転送するケースではOS側のファイルの処理に多くの負担がかかることがある。例えば100万タイルぐらいあるだけでファイルコピーだけでも恐ろしく時間がかかるなど。<a href="#reffn_1" title="Jump back to footnote [1] in the text."> ↩</a>
+</blockquote>
+<blockquote id="fn_2">
+<sup>2</sup>. きっぱりと書いていますが、本当に使ったことないのでしょうがない。<a href="#reffn_2" title="Jump back to footnote [2] in the text."> ↩</a>
+</blockquote>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="tile.html" class="navigation navigation-prev " aria-label="Previous page: タイルについて">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../knowladge/sprite_url.html" class="navigation navigation-next " aria-label="Next page: Sprite URLについて">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"mbtilesについて","level":"5.2","depth":1,"next":{"title":"Sprite URLについて","level":"6.1","depth":1,"path":"docs/knowladge/sprite_url.md","ref":"docs/knowladge/sprite_url.md","articles":[]},"previous":{"title":"タイルについて","level":"5.1","depth":1,"path":"docs/spec/tile.md","ref":"docs/spec/tile.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/spec/mbtiles.md","mtime":"2022-12-15T07:46:50.816Z","type":"markdown"},"gitbook":{"version":"4.0.4","time":"2022-12-15T07:47:00.442Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

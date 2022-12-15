@@ -1,0 +1,465 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Sprite URLについて · HonKit</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 4.0.4">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="glyphs_url.html" />
+    
+    
+    <link rel="prev" href="../spec/mbtiles.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    はじめに
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../prepare/docker.html">
+            
+                <a href="../prepare/docker.html">
+            
+                    
+                    Dockerをインストール
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Vector Tileの作成</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../generate_vector_tile/openmaptiles.html">
+            
+                <a href="../generate_vector_tile/openmaptiles.html">
+            
+                    
+                    OpenMapTiles
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">スタイリング</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../styling/maputnik.html">
+            
+                <a href="../styling/maputnik.html">
+            
+                    
+                    Maputnikによるスタイリング
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">配信</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../serve/vector_tile_hosting.html">
+            
+                <a href="../serve/vector_tile_hosting.html">
+            
+                    
+                    Vectorタイル配信
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">仕様など</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../spec/tile.html">
+            
+                <a href="../spec/tile.html">
+            
+                    
+                    タイルについて
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../spec/mbtiles.html">
+            
+                <a href="../spec/mbtiles.html">
+            
+                    
+                    mbtilesについて
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">ナレッジ</li>
+        
+        
+    
+        <li class="chapter active" data-level="6.1" data-path="sprite_url.html">
+            
+                <a href="sprite_url.html">
+            
+                    
+                    Sprite URLについて
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="glyphs_url.html">
+            
+                <a href="glyphs_url.html">
+            
+                    
+                    Glyphs URLについて
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Published with HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Sprite URLについて</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="sprite-url-について">Sprite URL について</h1>
+<p>Mapbox GL StyleではPOI用のアイコンの画像を使う際には <code>Sprite URL</code> を設定しなくてはいけません。</p>
+<p>Spriteとは CSS Sprite のような画像を指し、 Mapbox GL Style ではSpriteの位置をPOIなどと関連付けるため、
+<code>sprite.json</code> というファイルを用意する必要があります。</p>
+<p>実際に必要な構成は以下のようになります。</p>
+<pre><code>.
+├── sprite.json
+├── sprite.png
+├── sprite@2x.json
+└── sprite@2x.png
+</code></pre><p>このうち、 <code>sprite.json</code> と <code>sprite.png</code> がペアに、
+<code>sprite@2x.json</code> と <code>sprite@2x.png</code> が高解像度のペアとなります。</p>
+<p>アイコンは全てSVGファイルで作成します。
+そして、<code>spritezero</code>及びそのコマンドラインインターフェイスの<code>spritezero-cli</code>を使って<code>sprite.json</code>及び<code>sprite.png</code>のペアを作成します。</p>
+<p><a href="https://github.com/mapbox/spritezero/" target="_blank">https://github.com/mapbox/spritezero/</a></p>
+<p><a href="https://github.com/mapbox/spritezero-cli" target="_blank">https://github.com/mapbox/spritezero-cli</a></p>
+<p>なお、 <code>spritezero-cli</code> にいたってはmapboxが全く動いてくれず動かない状態で放置されているので、 <a href="https://github.com/mapbox/spritezero-cli/pulls" target="_blank">Pull Request</a> から使えるものを利用する羽目になると思います。</p>
+<p>今回の画像は作成は以下のようにして作成しています(注: 以下のコードは現在は動かないので注意)。</p>
+<pre><code class="lang-bash">npm -g install @mapbox/spritezero-cli
+git <span class="hljs-built_in">clone</span> https://github.com/smellman/osm-bright-gl-style.git
+<span class="hljs-built_in">cd</span> osm-bright-gl-style
+spritezero /tmp/sprite icons <span class="hljs-comment"># sprite.jsonとsprite.pngのペア作成</span>
+spritezero --ratio=2 /tmp/sprite@2x icons <span class="hljs-comment"># sprite@2x.jsonとsprite@2x.pngのペア作成</span>
+</code></pre>
+<h3 id="sdfアイコンについて">SDFアイコンについて</h3>
+<p>SDFアイコンとは <code>icon-color</code> などで色が変更可能なアイコンを指します。
+ただし、詳細な情報は明確にドキュメント化されていません。</p>
+<p><a href="https://github.com/mapbox/mapbox-gl-style-spec/issues/97" target="_blank">https://github.com/mapbox/mapbox-gl-style-spec/issues/97</a></p>
+<p>まともな情報源は上記issueのtmcwの発言ぐらいで、</p>
+<ul>
+<li>SDFはSigned Distance Fieldの意味である</li>
+<li>単色のラスタファイルのみ利用可能</li>
+</ul>
+<p>ぐらいの情報しかありません。</p>
+<p>ただし、基本的に単色のSVGファイルで構築されたアイコンに対して <code>spritezero</code> を実行したあとに、出力されたjsonファイルに <code>&quot;sdf&quot;: true</code> という値を入れればよいことが分かっています。</p>
+<p><code>spritezero</code> では以下のようなJSONのハッシュとなります。</p>
+<pre><code class="lang-json"><span class="hljs-string">&quot;marker_11&quot;</span>: {
+  <span class="hljs-string">&quot;height&quot;</span>: <span class="hljs-number">17</span>,
+  <span class="hljs-string">&quot;pixelRatio&quot;</span>: <span class="hljs-number">1</span>,
+  <span class="hljs-string">&quot;width&quot;</span>: <span class="hljs-number">17</span>,
+  <span class="hljs-string">&quot;x&quot;</span>: <span class="hljs-number">289</span>,
+  <span class="hljs-string">&quot;y&quot;</span>: <span class="hljs-number">115</span>
+},
+</code></pre>
+<p>ここにテキストエディタで <code>&quot;sdf&quot;: true</code> を追加します。</p>
+<pre><code class="lang-json"><span class="hljs-string">&quot;marker_11&quot;</span>: {
+  <span class="hljs-string">&quot;height&quot;</span>: <span class="hljs-number">17</span>,
+  <span class="hljs-string">&quot;pixelRatio&quot;</span>: <span class="hljs-number">1</span>,
+  <span class="hljs-string">&quot;width&quot;</span>: <span class="hljs-number">17</span>,
+  <span class="hljs-string">&quot;x&quot;</span>: <span class="hljs-number">289</span>,
+  <span class="hljs-string">&quot;y&quot;</span>: <span class="hljs-number">115</span>,
+  <span class="hljs-string">&quot;sdf&quot;</span>: <span class="hljs-literal">true</span>
+},
+</code></pre>
+<p>これで <code>icon-color</code> が利用可能になります。</p>
+<p>なお、 <code>spritezero-cli</code> は現状 SDFアイコンとして出力をする機能を持たないようなので注意してください。</p>
+<p>また、 Mapbox自体は SDF アイコンを削除しようと考えていましたが、コミュニティからの反発があり実現されませんでした。</p>
+<p><a href="https://github.com/mapbox/mapbox-gl-js/issues/4118" target="_blank">https://github.com/mapbox/mapbox-gl-js/issues/4118</a></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../spec/mbtiles.html" class="navigation navigation-prev " aria-label="Previous page: mbtilesについて">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="glyphs_url.html" class="navigation navigation-next " aria-label="Next page: Glyphs URLについて">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Sprite URLについて","level":"6.1","depth":1,"next":{"title":"Glyphs URLについて","level":"6.2","depth":1,"path":"docs/knowladge/glyphs_url.md","ref":"docs/knowladge/glyphs_url.md","articles":[]},"previous":{"title":"mbtilesについて","level":"5.2","depth":1,"path":"docs/spec/mbtiles.md","ref":"docs/spec/mbtiles.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docs/knowladge/sprite_url.md","mtime":"2022-12-15T07:46:50.816Z","type":"markdown"},"gitbook":{"version":"4.0.4","time":"2022-12-15T07:47:00.442Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
