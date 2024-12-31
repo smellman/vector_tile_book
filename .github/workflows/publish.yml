@@ -29,15 +29,10 @@ jobs:
         run: npm install
       - name: build docs
         run: npx honkit build
-      - name: push to gh-pages
-        run: |
-          rm -fr .git
-          git config --global user.name "Taro Matsuzawa"
-          git config --global user.email "btm@tech.email.ne.jp"
-          git init .
-          touch .nojekyll
-          rm -fr .editorconfig .github .gitignore .vscode README.md SUMMARY.md docs node_modules package*
-          mv _book/* .
-          rm -fr _book
-          git add .
-          git commit --quiet -m "Deploy from Github Action" && git push --force https://$GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY master:gh-pages > /dev/null 2>&1
+      - run: touch _book/.nojekyll
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/master'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_book
