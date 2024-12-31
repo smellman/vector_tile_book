@@ -9,8 +9,12 @@ on:
       - master
 
 jobs:
-  publish:
+  build:
     runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -31,8 +35,19 @@ jobs:
         run: npx honkit build
       - run: touch _book/.nojekyll
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        if: github.ref == 'refs/heads/master'
+        uses: actions/upload-pages-artifact@v1
         with:
-          github_token: ${{ secrets.GH_TOKEN }}
-          publish_dir: ./_book
+          path: _book
+  deploy:
+    runs-on: ubuntu-24.04
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v3
