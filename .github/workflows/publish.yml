@@ -43,7 +43,7 @@ jobs:
         run: npx honkit build
       - run: touch _book/.nojekyll
       - name: Deploy
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v4
         with:
           path: _book
   deploy:
