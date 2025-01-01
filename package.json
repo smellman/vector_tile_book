@@ -14,6 +14,7 @@
   "license": "ISC",
   "devDependencies": {
     "honkit": "^6.0.2",
-    "markdownlint-cli2": "^0.17.1"
+    "markdownlint-cli2": "^0.17.1",
+    "send": "^1.1.0"
   }
 }
