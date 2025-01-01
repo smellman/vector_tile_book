@@ -2,9 +2,9 @@
 
 MBTilesとは、Mapboxが作成した[タイル](./tile.md)を格納するためのストレージ仕様です。
 
-https://github.com/mapbox/mbtiles-spec
+[MBTiles Specification](https://github.com/mapbox/mbtiles-spec)
 
-[SQLite](https://sqlite.org/index.html)を用いており、1つのファイルで多くのタイルを格納することができ、また転送時のコストもタイルに比べて少なくなります[^1}。
+[SQLite](https://sqlite.org/index.html)を用いており、1つのファイルで多くのタイルを格納することができ、また転送時のコストもタイルに比べて少なくなります[^1]。
 
 ## 構成
 
@@ -12,13 +12,13 @@ https://github.com/mapbox/mbtiles-spec
 
 まず、SQLiteの構成から確認をします。これは`sqlite3`コマンドを用います。
 
-```
+```bash
 sqlite3 data/tiles.mbtiles
 ```
 
 `.tables`コマンドで中身を確認します。
 
-```
+```sql
 sqlite> .tables
 geocoder_data  grid_key       grids          keymap         metadata
 grid_data      grid_utfgrid   images         map            tiles
@@ -30,7 +30,7 @@ grid_data      grid_utfgrid   images         map            tiles
 
 OpenMapTilesでは`tiles`はViewとして実装されています。
 
-```
+```sql
 sqlite> .schema tiles
 CREATE VIEW tiles AS
     SELECT
@@ -44,7 +44,6 @@ CREATE VIEW tiles AS
 ```
 
 アプリケーションから呼び出す側では特にテーブルかビューかを気にする必要はありません。
-
 
 [^1]: 大量のタイルを転送するケースではOS側のファイルの処理に多くの負担がかかることがある。例えば100万タイルぐらいあるだけでファイルコピーだけでも恐ろしく時間がかかるなど。
 [^2]: きっぱりと書いていますが、本当に使ったことないのでしょうがない。

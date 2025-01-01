@@ -26,19 +26,19 @@
 - bc
 - md5sum (Ubuntuでは`coreutils`に、macOSのHomebrewでは`md5sha1sum`に含まれる)
 
-# セットアップ
+## セットアップ
 
 openmaptiles の `quickstart.sh` の実行に必要なコマンドをインストールします。
 
-## Ubuntu
+### Ubuntu
 
 ```bash
 sudo apt install git make bc
 ```
 
-## Mac
+### Mac
 
-```
+```bash
 sudo xcode-select -s /Applications/Xcode.app
 xcode-select --install
 brew install md5sha1sum
@@ -48,7 +48,7 @@ brew install md5sha1sum
 
 また、md5sumは必須ではないが`quickstart.sh`を実行後に停止してしまうのでインストールを推奨。
 
-## openmaptiles
+### openmaptiles
 
 最初にopenmaptilesをgithubから`git clone`して、ターゲットとなるバージョンを指定します。
 
@@ -60,19 +60,19 @@ git checkout -b v3.11 refs/tags/v3.11
 
 次に必要なdocker imageを取得します。
 
-```
+```bash
 docker-compose pull
 ```
 
 あとは動作チェックのために、`quickstart.sh`を実行します。
 
-```
+```bash
 ./quickstart.sh
 ```
 
 これでセットアップは完了です。
 
-# タイルの作成
+## タイルの作成
 
 openmaptilesでは`quickstart.sh`を通して以下の作業をします。
 
@@ -120,7 +120,7 @@ make list
 
 また、`quickstart.sh`実行後には `data/tiles.mbtiles` というファイルが作成されます。
 
-## タイルの再作成
+### タイルの再作成
 
 最新のデータを使ってタイルを再度作成する場合は一度作成したタイルや設定ファイルを削除する必要があります。
 
@@ -129,5 +129,3 @@ cd openmaptiles
 rm -fr data
 ./quickstart.sh japan
 ```
-
-

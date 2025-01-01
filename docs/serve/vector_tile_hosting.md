@@ -25,7 +25,7 @@
 
 今回は[OpenMapTiles](../generate_vector_tile/openmaptiles.md)の項目にて作成した `data/tiles.mbtiles`を構築するサーバ上にコピーします。
 
-```
+```bash
 scp data/tiles.mbtiles hogehoge@example.com:~/
 ```
 
@@ -35,7 +35,7 @@ scp data/tiles.mbtiles hogehoge@example.com:~/
 
 まず、Dockerを使って `tileserver-gl` が起動するかを確認します。
 
-サーバにログインして、mbtilesファイルがあるディレクトリで以下のようにして `tileserver-gl `のDocker イメージを起動します。
+サーバにログインして、mbtilesファイルがあるディレクトリで以下のようにして `tileserver-gl` のDocker イメージを起動します。
 
 ```bash
 docker run -it -v $(pwd):/data -p 8080:80 klokantech/tileserver-gl --verbose
@@ -53,7 +53,7 @@ grepにひっかかれば成功です。
 
 tileserver-glでは以下のような構成となります。
 
-```
+```bash
 .
 ├── config.json
 ├── fonts
@@ -80,7 +80,7 @@ tileserver-glのdockerはcurrent directoryのみを参照します。
 
 まずはディレクトリを作成し、`tiles.mbtiles`をコピーします。
 
-```
+```bash
 mkdir tileserver
 cd tileserver
 cp ~/tiles.mbtiles .
@@ -88,7 +88,7 @@ cp ~/tiles.mbtiles .
 
 次にフォントをダウンロードして展開します。
 
-```
+```bash
 wget https://github.com/smellman/fonts/archive/gh-pages.zip
 unzip gh-pages.zip
 mv fonts-gh-pages fonts
@@ -97,7 +97,7 @@ rm gh-pages.zip
 
 次に`sprite`画像及びjsonファイルを取得します。
 
-```
+```bash
 mkdir sprites
 cd sprites
 wget https://raw.githubusercontent.com/openmaptiles/osm-bright-gl-style/gh-pages/sprite.json
@@ -108,12 +108,12 @@ cd ..
 ```
 
 最後にスタイルを取得します。
-    
-```
+
+```bash
 mkdir styles
 cd styles
 wget https://raw.githubusercontent.com/openmaptiles/osm-bright-gl-style/gh-pages/style-local.json
-mv style-local.json osm-bright.json
+mv style-local.json osm-bright.json
 cd ..
 ```
 
@@ -121,14 +121,14 @@ cd ..
 
 config.json を編集することで、tileserver-glの設定や、配信されるスタイルとデータの組み合わせを表現することができます。
 
-```
+```bash
 cd ~/tileserver
 vim config.json
 ```
 
 今回は以下のサンプルを作成します。
 
-```
+```json
 {
   "options": {
     "paths": {
@@ -176,19 +176,19 @@ vim config.json
 
 設定ファイルの詳細は下記サイトを御覧ください。
 
-https://tileserver.readthedocs.io/en/latest/config.html
+[TileServer GL 1.0 documentation » Configuration file](https://tileserver.readthedocs.io/en/latest/config.html)
 
-## `tileserver-gl`を起動
+## `tileserver-gl` を起動
 
 `config.json`まで設定が終わったら`tileserver-gl`を起動します。
 
-```
+```bash
 docker run -it -v $(pwd):/data -p 8080:80 klokantech/tileserver-gl
 ```
 
 起動後にブラウザでタイルサーバにサクセスします。
 
-[http://example.com:8080](http://example.com:8080)
+[http://example.com:8080](http://example.com:8080)
 
 表示されるのは`tileserver-gl`のフロントサイトです。ここからベクタタイル及びラスタタイルから参照することができいます。
 

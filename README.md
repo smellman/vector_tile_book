@@ -22,10 +22,16 @@
 
 ローカルでの閲覧及びビルドは以下の手順で行えます。
 
-```
+```sh
 git clone https://github.com/smellman/vector_tile_book.git
 cd vector_tile_book
 npm install
-npx honkit serve
-npx honkit build
+npm run serve
+npm run build
+```
+
+なお、Pull Requestを送る前には必ずmarkdownlintを実行してください。
+
+```sh
+npm run lint
 ```

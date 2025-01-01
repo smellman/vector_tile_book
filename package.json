@@ -4,12 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "honkit build",
+    "serve": "honkit serve",
+    "lint": "markdownlint-cli2 --config .markdownlint-cli2.jsonc '**/*.md' '#node_modules' '#_book'",
+    "prebuild": "npm run lint"
   },
   "keywords": [],
   "author": "Taro Matsuzawa <btm@tech.email.ne.jp> (https://smellman.hatenablog.com/)",
   "license": "ISC",
   "devDependencies": {
-    "honkit": "^6.0.2"
+    "honkit": "^6.0.2",
+    "markdownlint-cli2": "^0.17.1"
   }
 }

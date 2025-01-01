@@ -7,7 +7,7 @@ Spriteとは CSS Sprite のような画像を指し、 Mapbox GL Style ではSpr
 
 実際に必要な構成は以下のようになります。
 
-```
+```bash
 .
 ├── sprite.json
 ├── sprite.png
@@ -21,9 +21,9 @@ Spriteとは CSS Sprite のような画像を指し、 Mapbox GL Style ではSpr
 アイコンは全てSVGファイルで作成します。
 そして、`spritezero`及びそのコマンドラインインターフェイスの`spritezero-cli`を使って`sprite.json`及び`sprite.png`のペアを作成します。
 
-https://github.com/mapbox/spritezero/
+[spritezero](https://github.com/mapbox/spritezero/)
 
-https://github.com/mapbox/spritezero-cli
+[spritezero-cli](https://github.com/mapbox/spritezero-cli)
 
 なお、 `spritezero-cli` にいたってはmapboxが全く動いてくれず動かない状態で放置されているので、 [Pull Request](https://github.com/mapbox/spritezero-cli/pulls) から使えるものを利用する羽目になると思います。
 
@@ -37,12 +37,12 @@ spritezero /tmp/sprite icons # sprite.jsonとsprite.pngのペア作成
 spritezero --ratio=2 /tmp/sprite@2x icons # sprite@2x.jsonとsprite@2x.pngのペア作成
 ```
 
-### SDFアイコンについて
+## SDFアイコンについて
 
 SDFアイコンとは `icon-color` などで色が変更可能なアイコンを指します。
 ただし、詳細な情報は明確にドキュメント化されていません。
 
-https://github.com/mapbox/mapbox-gl-style-spec/issues/97
+[Support for SDF icons #97](https://github.com/mapbox/mapbox-gl-style-spec/issues/97)
 
 まともな情報源は上記issueのtmcwの発言ぐらいで、
 
@@ -84,5 +84,4 @@ https://github.com/mapbox/mapbox-gl-style-spec/issues/97
 
 また、 Mapbox自体は SDF アイコンを削除しようと考えていましたが、コミュニティからの反発があり実現されませんでした。
 
-https://github.com/mapbox/mapbox-gl-js/issues/4118
-
+[Remove support for SDF icons #4118](https://github.com/mapbox/mapbox-gl-js/issues/4118)

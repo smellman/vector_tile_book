@@ -60,7 +60,7 @@ sudo apt install docker.io
 sudo service docker start
 ```
 
-# ディスクサイズ対策
+## ディスクサイズ対策
 
 クラウドなどの構成でrootデバイスに対して空き容量が足りない場合は、Dockerイメージを保存する場所を変更する必要があります。
 

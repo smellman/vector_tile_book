@@ -9,7 +9,14 @@ on:
       - main
 
 jobs:
+  lint:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: DavidAnson/markdownlint-cli2-action@v19
+        with:
+          globs: '**/*.md'
   build:
+    needs: lint
     runs-on: ubuntu-24.04
     permissions:
       contents: write

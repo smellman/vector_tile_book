@@ -8,6 +8,7 @@
 * [OpenMapTiles](docs/generate_vector_tile/openmaptiles.md)
 
 ## スタイリング
+
 * [Maputnikによるスタイリング](docs/styling/maputnik.md)
 
 ## 配信
