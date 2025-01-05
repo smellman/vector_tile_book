@@ -1,10 +1,9 @@
 # Dockerのインストール
 
 本ドキュメントでは多くの場面でDockerを使った処理を多く行います。
-そのため、事前にDocker及びdocker-composeを入れておく必要があります。
-なお、Raspberry Piについては現時点ではDockerのみで行います。
+そのため、事前にDocker及び Docker Compose V2 を入れておく必要があります。
 
-## Ubuntu
+## Ubuntu or Debian
 
 aptコマンドでdockerをインストールし、サービスを起動します。
 
@@ -31,12 +30,14 @@ sudo usermod -aG docker $USER
 docker run hello-world
 ```
 
-最後にdocker-composeをインストールします。
+最後に Docker Compose V2 をインストールします。
 
 ```bash
 sudo apt install curl
-sudo curl -L "https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
+DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}
+mkdir -p $DOCKER_CONFIG/cli-plugins
+curl -SL https://github.com/docker/compose/releases/download/v2.32.0/docker-compose-linux-x86_64 -o $DOCKER_CONFIG/cli-plugins/docker-compose
+chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
 ```
 
 ## Mac
@@ -49,15 +50,21 @@ sudo chmod +x /usr/local/bin/docker-compose
 docker run hello-world
 ```
 
-docker-composeコマンドはDocker Desktopに含まれます。
+Docker Compose V2 プラグインはDocker Desktopに含まれます。
 
-## Raspberry Pi (Rasbian OS)
+## [Raspberry Pi (Raspberry Pi OS)](https://www.raspberrypi.com/software/)
 
 aptコマンドでdockerをインストールし、サービスを起動します。
 
 ```bash
 sudo apt install docker.io
 sudo service docker start
+```
+
+次にdocker自体が動作するかを確認します。
+
+```bash
+sudo docker run hello-world
 ```
 
 ## ディスクサイズ対策
@@ -80,7 +87,7 @@ sudo mkdir /mnt/docker
 
 次に `/etc/docker/daemon.json` を作成します。
 このファイルは基本となる設定から追加となる設定のみを記述します。
-今回は `graph` という値を作成します。
+今回は `data-root` という値を作成します。
 
 ```bash
 sudo vim /etc/docker/daemon.json
@@ -89,7 +96,7 @@ cat /etc/docker/daemon.json
 
 ```json
 {
-  "graph": "/mnt/docker"
+  "data-root": "/mnt/docker"
 }
 ```
 
