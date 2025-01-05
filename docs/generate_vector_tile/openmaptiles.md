@@ -132,6 +132,7 @@ make list-geofabrik
 
 ```bash
 cd openmaptiles
+docker compose down -v
 git clean -dfx
 ./quickstart.sh japan
 ```
