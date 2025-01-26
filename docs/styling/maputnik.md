@@ -331,8 +331,8 @@ Maputnik上では`タイプ`が`Symbol`の場合は、
 また、複製後のレイヤーはIDの重複を防ぐために `-copy` というsuffixが追加されます。
 
 レイヤーの表示非表示切り替えボタン(目のアイコン)では単に表示と非表示を切り替えます。
-レイヤーが表示から非表示になった場合は、 `Layout Properties` に `"visibility": "none"` という値が設定されます。
-逆に非表示から表示になった場合は、 `Layout Properties` に `"visibility": "visible"` という値が設定されます。
+レイヤーが表示から非表示になった場合は、 `layout` に `"visibility": "none"` という値が設定されます。
+逆に非表示から表示になった場合は、 `layout` に `"visibility": "visible"` という値が設定されます。
 なお、`"visibility": "visible"` はデフォルト値です。
 
 #### レイヤーの順番操作
@@ -340,51 +340,51 @@ Maputnik上では`タイプ`が`Symbol`の場合は、
 レイヤーの順番を操作するにはレイヤーの左にあるアイコンをクリックしたまま上下に動かして、
 挿入したい場所に移動させます。
 
-この時に同じ`Source Layer`が参照されているものが上下に並ぶと自動的にグループ化されます。
+この時に同じ `ソースレイヤ` が参照されているものが上下に並ぶと自動的にグループ化されます。
 
-また、グループ内に２つしかレイヤーがないレイヤーを違う`Source Layer`の間に移動させるとグループ化が解除されます。
+また、グループ内に２つしかレイヤーがないレイヤーを違う `ソースレイヤ` の間に移動させるとグループ化が解除されます。
 
 なお、一部のレイヤーが上下に動かせないという現象があります。
 その場合はレイヤーを複製してから複製したレイヤーを動かし、その後元のレイヤーを非表示にするなどしてください。
 
-### Layout Properties 及び Paint Properties
+### レイヤプロパティ 及び ペイントプロパティ
 
-`Layout Properties` は `Line` 及び `Symbol` でレイヤーの編集画面で編集が可能です。
+`レイアウトプロパティ` は `Line` 及び `Symbol` でレイヤーの編集画面で編集が可能です。
 ただし、仕様においては全ての`type`で`visible`という表示非表示を選択するpropertyがあり、
 このpropertyのみレイヤー自体の操作(後述)で扱います。
 
-#### Paint Propertiesの基本項目
+#### ペイントプロパティの基本項目
 
-Paint Propertiesでは以下の項目は多くのところで共通で指定可能です。
+`ペイントプロパティ` では以下の項目は多くのところで共通で指定可能です。
 
 Color
 :    色指定。RGBのHEX表記(#99EEBBなど)やhsl表記(hsl(210, 67%, 85%))、hsla表記(hsla(0, 0%, 89%, 0.56))が可能です。
 
 Pattern
-:    塗りつぶす画像を指定。指定可能なものはSpriteの名前を用います。
+:    塗りつぶす画像を指定。指定可能なものはスプライトの名前を用います。
 
 Opacity
 :    透明度。1が100%(不透明)で0が0%(透明)です。
 
 これらは共通なので以下では一部説明を省略します。
 
-では、以下ではそれぞれの`type`ごとに利用可能な`Properties`について説明します。
+では、以下ではそれぞれの `type` ごとに利用可能な `プロパティ` について説明します。
 
 #### type: Background
 
-`Background`は背景を指定します。
+`Background` は背景を指定します。
 
-[Mapbox Style Spec / Layers / Background](https://docs.mapbox.com/mapbox-gl-js/style-spec/#layers-background)
+[MapLibre Style Spec / Layers / Background](https://maplibre.org/maplibre-style-spec/layers/#background)
 
-以下の`Paint Properites`が利用可能です。
+以下の `ペイントプロパティ` が利用可能です。
 
-| プロパティ名 | Mapbox GL Style    | 値     | デフォルト値  | 説明                                       |
+| プロパティ名 | MapLibre Style    | 値     | デフォルト値  | 説明                                       |
 | ------------ | ------------------ | ------ | ------------- | ------------------------------- |
 | Color        | background-color   | 色指定 | `#000000` | 背景色、Patternが指定されると無効になる    |
 | Pattern      | background-pattern | 文字列 | なし          | 背景の塗りつぶしのパターンに使う画像を指定 |
 | Opacity      | background-opacity | 数字   | `1`       | 背景の透過度                               |
 
-Backgroundは特にFilterなどを指定せずに使います。
+Backgroundは特にフィルタなどを指定せずに使います。
 また、レイヤーは一番上にもっていきます。
 
 #### type: Fill
@@ -392,11 +392,11 @@ Backgroundは特にFilterなどを指定せずに使います。
 `Fill` はポリゴンの塗りつぶしをします。
 建物(building)や水(water)、緑(landcover_wood)などに利用されます。
 
-[(Mapbox GL Style Spec / Layers / Fill](https://docs.mapbox.com/mapbox-gl-js/style-spec/layers/#fill)
+[MapLibre Style Spec / Layers / Fill](https://maplibre.org/maplibre-style-spec/layers/#fill)
 
-以下の`Paint Properties`が利用可能です。
+以下の `ペイントプロパティ` が利用可能です。
 
-| プロパティ名     | Mapbox GL Style       | 値                                       | デフォルト値  | 説明                                                                                                                                                                                                                         |
+| プロパティ名     | MapLibre Style       | 値                                       | デフォルト値  | 説明                                                                                                                                                                                                                         |
 | ---------------- | --------------------- | ---------------- | ------------- | ------------------------------- |
 | Opacity          | fill-opacity          | 数字                                     | `1`       | 塗りつぶしの透過度                                                                                                                                                                                                           |
 | Color            | fill-color            | 色指定                                   | `#000000` | 塗りつぶしの色、Patternが指定されると無効になる                                                                                                                                                                              |
@@ -410,25 +410,25 @@ Backgroundは特にFilterなどを指定せずに使います。
 
 `Line`はポリゴンなどの線を描画する時に利用します。
 
-[Mapbox GL Style Spec / Layers / Line](https://docs.mapbox.com/mapbox-gl-js/style-spec/layers/#line)
+[MapLibre Style Spec / Layers / Line](https://maplibre.org/maplibre-style-spec/layers/#line)
 
-Lineには以下の4つの`Layout Properties`が存在しますが、
-基本的な考え方は `SVG 1.1`の`Stroke Properties`と同じです。
+`Line` には以下の4つの `レイアウトプロパティ` が存在しますが、
+基本的な考え方は `SVG 1.1` の `ストロークプロパティ` と同じです。
 
 [SVG 1.1 / 11.4 ストロークプロパティ](https://triple-underscore.github.io/SVG11/painting.html#StrokeProperties)
 
-| プロパティ名 | Mapbox GL Style  | SVG 1.1           | 値                         | デフォルト値 | 説明                                                                                                                          |
+| プロパティ名 | MapLibre Style  | SVG 1.1           | 値                         | デフォルト値 | 説明                                                                                                                          |
 | ----------------- | ---------------- | ----------------- | ---------------- | ------------ | ------------------------------ |
 | Cap               | line-cap         | stroke-linecap    | enum (butt, round, square) | butt         | ストロークの際に、開いた部分パスの両端に利用される形状                                                                        |
 | Join              | line-join        | stroke-linejoin   | enum (bevel, round, miter) | miter        | ストロークされる際に，それらの角（パス区分の継ぎ目）に利用される形状                                                          |
 | Miter limit       | line-miter-limit | stroke-miterlimit | 数字                       | `2`      | line-join=miterの場合に２つのパス区分の継ぎ目が鋭角の場合に line-join を miter から bevel とするための比率                    |
 | Round limit       | line-round-limit | 対応なし          | 数字                       | `1.05`   | line-join=roundの場合に２つのパス区分の継ぎ目が浅い角度(shallow angle)の場合に line-join を round から miter とするための比率 |
 
-`line-round-limit`のみSVG 1.1に対応する概念がありません。
+`line-round-limit` のみSVG 1.1に対応する概念がありません。
 
-Lineで使われる`Paint Properties`は以下のものがあります。
+`Line` で使われる`Paint Properties`は以下のものがあります。
 
-| プロパティ名 | Mapbox GL Style       | 値                                       | デフォルト値  | 説明                                                                                                                                                                                                                         |
+| プロパティ名 | MapLibre Style       | 値                                       | デフォルト値  | 説明                                                                                                                                                                                                                         |
 | ---------------- | --------------------- | -------------------- | ------------- | -------------------------------------------------- |
 | Opacity          | line-opacity          | 数字                                     | `1`       | 線の透過度                                                                                                                                                                                                                   |
 | Color            | line-color            | 色指定                                   | `#000000` | 線の色、Patternが指定されてると無効になる                                                                                                                                                                                    |
@@ -446,31 +446,32 @@ Lineで使われる`Paint Properties`は以下のものがあります。
 `Symbol` はPOIなどのPointや道路や建物の名前を表示するのに使います。
 そのため、POINT, LINESTRING, POLYGONのいずれも利用することができます。
 
-[Mapbox GL Style Spec / Layers / Symbol](https://docs.mapbox.com/mapbox-gl-js/style-spec/#layers-symbol)
+[MapLibre Style Spec / Layers / Symbol](https://maplibre.org/maplibre-style-spec/layers/#symbol)
 
-また、テキストや画像を使うことができるため、MaputnikではLayout Properties及びPaint Propertiesが細かく分類されているという特長があります。
+また、テキストや画像を使うことができるため、Maputnikでは `レイアウトプロパティ` 及び `ペイントプロパティ` が細かく分類されているという特長があります。
 
-- Layout properties
-  - General layout properites
-  - Text layout properties
-  - Icon layout properties
-- Paint properties
-  - Text paint properties
-  - Icon paint properties
+- レイアウトプロパティ
+  - 一般レイアウトプロパティ
+  - 文字レイアウトプロパティ
+  - アイコンレイアウトプロパティ
+- ペイントプロパティ
+  - 文字ペイントプロパティ
+  - アイコンペイントプロパティ
 
 以下が利用できる全てのプロパティです。
 
-##### Symbol の General layout properties 一覧
+##### Symbol の 一般レイアウトプロパティ 一覧
 
-| プロパティ名 | Mapbox GL Style    | 値                 | デフォルト値 | 説明                                                                                                                                                                                                                                                                   |
+| プロパティ名 | MapLibre Style    | 値                 | デフォルト値 | 説明                                                                                                                                                                                                                                                                   |
 | ------------ | ------------------ | ------------ | ------- | --------------------------------- |
 | Placement    | symbol-placement   | enum (point, line) | `point`  | point の場合、ラベルはジオメトリが配置されているポイントに配置され、 line の場合はラインの座標に沿って配置されます。これは LineString か Polygon のジオメトリのみで利用可能です                                                                                        |
 | Spacing      | symbol-spacing     | ピクセル           | `250`    | ２つの symbol が配置されている間の距離を指定します                                                                                                                                                                                                                     |
 | Avoid edges  | symbol-avoid-edges | boolean            | `true`   | もし true なら、 symbol 同士はお互いが衝突しないようタイルのエッジをクロスしません。これはレイヤーがベクタタイルで衝突を防ぐための十分な padding を持っていないレイヤーまたは point の symbol レイヤーが line の symbol レイヤーのあとに配置される場合に推奨されます。 |
+| Z order    | symbol-z-order     | enum (auto, viewport-y, source) | `auto`   | シンボルの Z 座標を指定します。 auto は symbol-placement が point の場合は viewport-y と同じになり、 line の場合は source と同じになります。 viewport-y は画面の Y 座標に基づいてシンボルをソートします。 source はデータソースの順序に基づいてシンボルをソートします。 |
 
-##### Symbol の Text layout properites の 一覧
+##### Symbol の テキストレイアウトプロパティ の 一覧
 
-| プロパティ名       | Mapbox GL Style         | 値                                                                                      | デフォルト値                                      | 説明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| プロパティ名       | MapLibre Style         | 値                                                                                      | デフォルト値                                      | 説明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | ------------------ | ----------------------- | ------------------------ | ----------------- | ------------------------------------------------ |
 | Field              | text-field              | 文字列                                                                                  | なし                                              | テキストラベルに使う値を指定します。地物のプロパティは `{field_name}` のようなトークンで指定します(トークンによる置換は文字によるテキストフィールドの値のみサポートしています、つまり function は使えません)。                                                                                                                                                                                                                                                                                                                 |
 | Font               | text-font               | フォント名の配列                                                                        | `Open Sans Regular,Arial Unicode MS Regular.` | 表示に使う`Font stack`を指定します                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
