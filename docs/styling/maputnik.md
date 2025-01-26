@@ -1,29 +1,26 @@
 # Maputnikによるベクトルタイルのデザイン編集
 
-ベクトルタイル(Mapbox Vector Tile)及び`tileserver-gl`ではMapbox GL Styleを使って地図のデザインを行います。
+ベクトルタイル(Mapbox Vector Tile)及び`tileserver-gl`ではMapLibre GL Styleを使って地図のデザインを行います。
 
-Mapbox GL Styleに対応したエディタではMapbox社のMapbox Studioが有名ですが、
-こちらはWebサービスとして提供されているものとなり、自分たちで作成したタイルをトップに選択できないという制限があります(旧バージョンであればホストすることができます)。
-
-そのため、今回はMapbox StudioのOSSクローンであるMaputnikとOpenMapTilesを例に説明をします。
-
-[Maputnik](https://maputnik.github.io/)
+今回はMaputnikとOpenMapTilesを例に説明をします。
 
 ## Maputnikについて
 
 Maputnik自体はReactを使ったシングルページアプリケーションとして構築されています。
 そのため、ローカル内で動作をさせる方法もありますが、今回は `OpenMapTiles` が公開してるMaputnikのサイトを使います。
 
-[Mapunnik Editor](https://maputnik.github.io/editor/)
+[Maputnik Editor](https://maplibre.org/maputnik/)
+
+Maputnik Editorは日本語で表示した場合を想定しています(スクリーンショットは英語のままです)。
 
 なお、ローカル内での動作方法については Maputnik-CLI の使い方を参照してください。
 
-[Maputnik CLI](https://github.com/maputnik/editor/wiki/Maputnik-CLI)
+[Maputnik CLI](https://github.com/maplibre/maputnik/wiki/Maputnik-CLI)
 
 ## 今回利用するOpenMapTilesの設定について
 
-今回はOSMFJが運用するサーバ、 `https://tile2.openstreetmap.jp/` をターゲットとします。
-運用上停止や、ドメインの変更の可能性がありますのでご注意ください。
+今回はOSMFJが運用するサーバ、 `https://tile.openstreetmap.jp/` をターゲットとします。
+運用上停止する可能性がありますのでご注意ください。
 
 自身で運用するものを対象とする場合、以下の項目を自分のサーバに置き換えてください。
 
@@ -35,16 +32,16 @@ Maputnik自体はReactを使ったシングルページアプリケーション�
 
 ### 新規ファイル作成
 
-新しいデザインを作成する場合はまず最初にベースとするデザインファイルを`Gallery Styles`の中から選択して開きます。
+新しいデザインを作成する場合はまず最初にベースとするデザインファイルを`ギャラリースタイル`の中から選択して開きます。
 なお、この時に3Dを含むデザインファイル(現在ではOSM Liberty)を使わないようにしてください。
 3Dの表現を含んでいる場合、`tileserver-gl`でのレンダリングで問題が生じる可能性があります。
 
 [maputnik-1]: images/maputnik_1.png
-![Galleryから選択][maputnik-1]
+![ギャラリーから選択][maputnik-1]
 
-今回はGalleryからKlokantech Basicを選びます。
+今回はギャラリーからMapTiler Basicを選びます。
 
-次に地図を日本の場所に移動したあとに画面上部の `Sources` タブを選択して、 `Sources` のダイアログを出します。
+次に地図を日本の場所に移動したあとに画面上部の `データソース` タブを選択して、 `ソース一覧` のダイアログを出します。
 
 ここで、 `#openmaptiles` に対する `TileJSON URL` をベクトルタイルサーバを参照するように設定します。
 
@@ -56,52 +53,52 @@ Maputnik自体はReactを使ったシングルページアプリケーション�
 [select-tilejson]: images/select-tilejson.png
 ![TileJSON URLをコピー][select-tilejson]
 
-今回利用する`TileJSON URL`は `https://tile2.openstreetmap.jp/data/japan.json` となります。
+今回利用する`TileJSON URL`は `https://tile.openstreetmap.jp/data/planet.json` となります。
 
 入力を終えたらタブを押すと即時に変更が反映されます。
 
 次に、フォントとスプライトを変更します。
-画面上部の `Style Settings` を選択し、 `Style Settings` のダイアログを出します。
+画面上部の `スタイル設定` を選択し、 `スタイル設定` のダイアログを出します。
 
 [maputnik-3]: images/maputnik_3.png
-![Style Settings][maputnik-3]
+![スタイル設定][maputnik-3]
 
-ここでは `Sprite URL` と `Glyphs URL` の二箇所を書き換えます。
-なお、アイコンを利用しない場合は `Sprite URL` は利用しません。
+ここでは `スプライトURL` と `フォントグリフURL` の二箇所を書き換えます。
+なお、アイコンを利用しない場合は `スプライトURL` は利用しません。
 
 現状では以下の設定が可能です。
 
-Sprite URL
-:   `https://tile2.openstreetmap.jp/styles/osm-bright/sprite`
+スプライトURL
+:   `https://tile.openstreetmap.jp/styles/osm-bright/sprite`
 
-Glyphs URL
-:   `https://tile2.openstreetmap.jp/fonts/{fontstack}/{range}.pbf`
+フォントグリフURL
+:   `https://tile.openstreetmap.jp/fonts/{fontstack}/{range}.pbf`
 
 これで初期設定が完了です。
 
 あとは一度この段階でスタイルファイルのダウンロードをします。
-画面上部の `Export` を選択し、 `Export Style` のダイアログを出します。
+画面上部の `保存` を選択し、 `スタイルを保存` のダイアログを出します。
 
 [maputnik-4]: images/maputnik_4.png
-![Export Style][maputnik-4]
+![スタイルを保存][maputnik-4]
 
 ここではスタイルファイルのダウンロードが可能になっています。
-`Download`を押してJSONファイルをダウンロードします。
+`保存`を押してJSONファイルをダウンロードします。
 
-## Mapbox GL Styleの基本
+## MapLibre GL Styleの基本
 
-Mapbox GL StyleはJSON形式のファイルとなります。
+MapLibre GL StyleはJSON形式のファイルとなります。
 
-[Mapbox Style Spec](https://docs.mapbox.com/mapbox-gl-js/style-spec/)
+[MapLibre Style Spec](https://maplibre.org/maplibre-style-spec/)
 
 ### Root要素
 
-Mapbox GL Styleでは最初にRoot要素を決定します。
+MapLibre GL Styleでは最初にRoot要素を決定します。
 
 重要となる要素は以下のものです。
 
 version
-:    Mapbox GL StyleのSpecificationのバージョンを指します
+:    MapLibre GL StyleのSpecificationのバージョンを指します。これは `8` で固定です。
 
 name
 :    スタイルの名称を指定します
@@ -110,17 +107,17 @@ sources
 :    スタイルファイルが参照するデータソースを指定します。データソースは複数指定可能です。
 
 glyphs
-:    スタイルファイルが参照するフォントのURLを指定します。詳細は後述する `Glyphs URL` について を参照してください。
+:    スタイルファイルが参照するフォントのURLを指定します。詳細は後述する `フォントグリフURL` について を参照してください。
 
 sprite
-:    スタイルファイルが参照するアイコンのスプライトのURLを指定します。詳細は後述する `Sprite URL` について を参照してください。
+:    スタイルファイルが参照するアイコンのスプライトのURLを指定します。詳細は後述する `スプライトURL` について を参照してください。
 
 layers
 :    後述するレイヤーを複数指定します。Maputnikでは主にこのレイヤーの編集を行います。
 
 ### レイヤー
 
-今回利用するOpenMapTiles及びMapbox GL Styleの組み合わせでは、
+今回利用するOpenMapTiles及びMapLibre GL Styleの組み合わせでは、
 OpenMapTilesが提供してるスキーマに沿ったレイヤーごとにデザインをする仕組みになります。
 
 レイヤーは概ね以下のものから構成されます。
@@ -128,30 +125,30 @@ OpenMapTilesが提供してるスキーマに沿ったレイヤーごとにデ�
 ID
 :   レイヤーのID値、他と重複してはいけない
 
-Type
-:   `Background`(背景), `Fill`(ポリゴン), `Line`(ポリライン), `Symbol`(POIなどのポイント), `Raster`(ラスタデータソース), `Circle`(円), `Fill-extrusion`(噴出したFill、3Dで利用)のいずれか
+タイプ
+:   `Background`(背景), `Fill`(ポリゴン), `Line`(ポリライン), `Symbol`(POIなどのポイント), `Raster`(ラスタデータソース), `Circle`(円), `Fill-extrusion`(噴出したFill、3Dで利用), `Hillshade`(標高表示), `Heatmap`(ヒートマップ)のいずれか
 
-Source
+ソース
 :   データの元となるソース、今回は `openmaptiles` に固定
 
-Source Layer
-:   Sourceに指定したソースの中でレイヤーが利用するデータのレイヤー
+ソースレイヤ
+:   ソースに指定したソースの中でレイヤーが利用するデータのレイヤー
 
-Min zoom
+最小ズーム
 :   表示される最小のズーム
 
-Max zoom
+最大ズーム
 :   表示される最大のズーム
 
 また、これから以下のものを組み合わせて表示を行います。
 
-Filter
-:   Source Layerで指定した中でレイヤーが使う条件となる式(複数設定可能)
+フィルタ
+:   ソースレイヤで指定した中でレイヤーが使う条件となる式(複数設定可能)
 
-Paint Properties
+ペイントプロパティ
 :   レイヤーをどのように描画するか指定するプロパティ
 
-Layout Properties
+レイアウトプロパティ
 :   レイヤーをどのように表示するか指定するプロパティ(`Line`及び`Symbol`のみ)
 
 例えば、水を真っ青で表現した場合は以下のようになります。
@@ -179,20 +176,20 @@ Layout Properties
 }
 ```
 
-なお、JSON上での表現では`Paint properties`は `paint`、
-`Layout properties`は `layout` と表現されますが、
-Maputnik上では`type`が`Symbol`の場合は、
-これらのpropertiesを `General layout properties`、
-`Text layout properties`、`Icon layout properties`、
-`Text paint properties`、`Icon paint properties`と
+なお、JSON上での表現では`ペイントプロパティ`は `paint`、
+`レイアウトプロパティ`は `layout` と表現されますが、
+Maputnik上では`タイプ`が`Symbol`の場合は、
+これらのプロパティを `一般レイアウトプロパティ`、
+`文字レイアウトプロパティ`、`アイコンレイアウトプロパティ`、
+`文字ペイントプロパティ`、`アイコンペイントプロパティ`と
 わかりやすく項目を分けるようになっています。
 
-また、`type`ごとに`Paint properties`と`Layout properties`の順番が変わり、
-また`Layout properties`の表示が無いものもあります。
+また、`type`ごとに`ペイントプロパティ`と`レイアウトプロパティ`の順番が変わり、
+また`レイアウトプロパティ`の表示が無いものもあります。
 
-#### Filter
+#### フィルタ
 
-FilterではSource Layerに対して演算子を用いたフィルタリングを行う機能となります。
+フィルタではソースレイヤに対して演算子を用いたフィルタリングを行う機能となります。
 
 `railway` というIDのレイヤーについて見ていきます。
 
@@ -217,12 +214,12 @@ FilterではSource Layerに対して演算子を用いたフィルタリング�
 [maputnik-filter-01]: images/maputnik_filter_01.png
 ![Filter][maputnik-filter-01]
 
-`railway` は `transportation` という `Source Layer`を参照していますが、
-`transportation`自体には`class` というフィールドに多くの`value`が存在しています。
+`railway` は `transportation` という `ソースレイヤ` を参照していますが、
+`transportation` 自体には `class` というフィールドに多くの `value` が存在しています。
 
 [OpenMapTiles Schema - transportation](https://openmaptiles.org/schema/#transportation)
 
-現状では`transportation`には以下のものが存在しています。
+現状では `transportation` には以下のものが存在しています。
 
 - motorway
 - trunk
@@ -263,7 +260,7 @@ FilterではSource Layerに対して演算子を用いたフィルタリング�
 ],
 ```
 
-`Filter` 自体は `演算子, filed, value` という並びの配列として表現されます。
+`フィルタ` 自体は `演算子, filed, value` という並びの配列として表現されます。
 
 なお、このフィルタは以下の表現の省略系となります。
 
@@ -282,32 +279,32 @@ FilterではSource Layerに対して演算子を用いたフィルタリング�
 
 では、このレイヤーをコピーして、橋になっている部分のみ適応するようフィルタを拡張してみます(レイヤー操作については後述します)。
 
-まず、右下の`Add filter`を選択します。すると、Filterが一行追加されます。
+まず、右下の`フィルタの追加`を選択します。すると、フィルタが一行追加されます。
 
 [maputnik-filter-02]: images/maputnik_filter_02.png
 ![Add Filter][maputnik-filter-02]
 
-ここで、 `field`に `brunnel` を、 `value` に `bridge` を、 `演算子` は `==` を指定します。
+ここで、 `field` に `brunnel` を、 `value` に `bridge` を、 `演算子` は `==` を指定します。
 
 [maputnik-filter-03]: images/maputnik_filter_03.png
-![Filterの記述][maputnik-filter-03]
+![フィルタの記述][maputnik-filter-03]
 
-Filterが適応されているレイヤーを確認するには画面上部の`Inspect Mode`を選択して`Map Mode`から`Inspect Mode`へと切り替えます。
+フィルタが適応されているレイヤーを確認するには画面上部の表示で `検査` を選択して `地図` から `検査` へと切り替えます。
 
-上記の操作では以下のように`bridge`のものだけが参照されるよう変化しているのがわかります。
+上記の操作では以下のように `bridge` のものだけが参照されるよう変化しているのがわかります。
 
 [maputnik-filter-04]: images/maputnik_filter_04.png
-![Inspect Modeでの確認][maputnik-filter-04]
+![検査での確認][maputnik-filter-04]
 
-このようにFilterを使うケースでは`Inspect Mode`での確認を頻繁に行います。
+このようにフィルタを使うケースでは `検査` での確認を頻繁に行います。
 
-Filterで用いられる`scheme`は下記サイトを参照してください。
+フィルタで用いられる`scheme`は下記サイトを参照してください。
 
 [OpenMapTiles Schema](https://openmaptiles.org/schema/)
 
-演算子については `Mapbox GL Style` の `Specification` を参照してください。
+演算子については `MapLibre Style Style` の `Expression` を参照してください。
 
-[Mapbox Style Spec / Spec Reference / Types #Filter](https://docs.mapbox.com/mapbox-gl-js/style-spec/types/#filter)
+[MapLibre Style Spec / Expression](https://maplibre.org/maplibre-style-spec/expressions/)
 
 #### レイヤーの順序及び操作
 
