@@ -493,9 +493,9 @@ Backgroundは特にフィルタなどを指定せずに使います。
 | Offset             | text-offset             | ピクセルの配列                                                                          | `0,0`                                         | テキストを中心地点からずらすオフセットを指定します。正の数は右下にずらし、負の数は左上にずらします                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | Optional           | text-optional           | boolean                                                                                 | `false`                                       | icon-image が必要です。 もし true ならテキストが他の symbol のテキストと衝突してアイコンが衝突していない場合、テキストなしでアイコンだけ表示します(テキストをオプション扱いにします)                                                                                                                                                                                                                                                                                                                                                           |
 
-##### Symbol の Icon layout properites の 一覧
+##### Symbol の アイコンレイアウトプロパティ の 一覧
 
-| プロパティ名       | Mapbox GL Style         | 値                               | デフォルト値   | 説明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| プロパティ名       | MapLibre Style         | 値                               | デフォルト値   | 説明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | ------------------ | -------------------- | -------------------- | -------------- | --------------------------------- |
 | Allow overlap      | icon-allow-overlap      | boolean                          | `false`    | もし true なら、前に描画されている symbol があってもアイコンを表示します                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | Ignore placement   | icon-ignore-placement   | boolean                          | `false`    | もし true なら、アイコンが衝突したときに他の symbol を表示します                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
@@ -510,9 +510,9 @@ Backgroundは特にフィルタなどを指定せずに使います。
 | Keep upright       | icon-keep-upright       | boolean                          | `false`    | icon-rotation-alignment が map でかつ symbol-placement = line である必要があります。 もし true なら、 アイコンが上下反対にならないよう垂直にアイコンを傾けます                                                                                                                                                                                                                                                                                                                                                     |
 | Offset             | icon-offset             | ピクセルの配列                   | `0,0`      | 中心地点からアイコンのオフセットの距離を指定します。正の数であれば右下に移動、負の数なら左上に移動します。 icon-rotate を組み合わせた場合、 回転した方向の向きにオフセットします                                                                                                                                                                                                                                                                                                                                   |
 
-##### Symbol の Text paint properties の 一覧
+##### Symbol の テキストペイントプロパティ の 一覧
 
-| プロパティ名     | Mapbox GL Style       | 値                   | デフォルト値           | 説明                                                                                                                                                                                                                         |
+| プロパティ名     | MapLibre Style       | 値                   | デフォルト値           | 説明                                                                                                                                                                                                                         |
 | ---------------- | --------------------- | -------------------- | ---------------------- | ------------------------------------ |
 | Color            | text-color            | 色                   | `#000000`          | テキストの色                                                                                                                                                                                                                 |
 | Opacity          | text-opacity          | 数字                 | `1`                | テキストの透過度                                                                                                                                                                                                             |
@@ -522,9 +522,9 @@ Backgroundは特にフィルタなどを指定せずに使います。
 | Translate        | text-translate        | ピクセルの配列       | `0,0`              | テキストの中心位置が初期値からどれだけ移動させるかを指定します。正の数は右下に移動、負の数は左上に移動します                                                                                                                 |
 | Translate anchor | text-translate-anchor | enum (map, viewport) | `map`              | 上記のトランスレートを `map` に関連付けるか、 `viewport` に関連付けるかを指定する。`map`の場合は地図を回転させても同じようにずれるが、`viewport`では地図を回転させるとそれに合わせてトランスレートが変動する |
 
-##### Symbol の Icon paint properties の 一覧
+##### Symbol の アイコンペイントプロパティ の 一覧
 
-| プロパティ名     | Mapbox GL Style       | 値                   | デフォルト値           | 説明                                                                                                                                                                                                                         |
+| プロパティ名     | MapLibre Style       | 値                   | デフォルト値           | 説明                                                                                                                                                                                                                         |
 | ---------------- | --------------------- | -------------------- | ---------------------- | ----------------------------------- |
 | Color            | icon-color            | 色                   | `#000000`          | アイコンの色、SDFアイコンのみ利用可能                                                                                                                                                                                        |
 | Opacity          | icon-opacity          | 数字                 | `1`                | 描画されたアイコンの透過度                                                                                                                                                                                                   |
@@ -536,15 +536,15 @@ Backgroundは特にフィルタなどを指定せずに使います。
 
 ## テクニック
 
-### ズームレベルごとの処理(function)
+### ズームレベルごとの処理(Expression)
 
 線やテキストなどはズームインをすると拡大するように設定するのが一般的です。
-Mapbox GL Styleではズームレベルごとにプロパティを設定することでこの動作を実現します。
-Mapbox GL Styleではこの仕組みを `function` と定義しています。
+MapLibre Styleではズームレベルごとにプロパティを設定することでこの動作を実現します。
+MapLibre Styleではこの仕組みを `Expression` と定義しています。
 
-[Mapbox GL Style Spec / Types #Function](https://docs.mapbox.com/mapbox-gl-js/style-spec/types/#function)
+[MapLibre Style Spec / Expressions](https://maplibre.org/maplibre-style-spec/expressions/)
 
-Klokantech Basicの `road_trunk_primary` では `line-width` の値を以下のように設定しています。
+MapTiler Basicの `road_trunk_primary` では `line-width` の値を以下のように設定しています。
 
 ```json
 "line-width": {
@@ -575,9 +575,9 @@ Klokantech Basicの `road_trunk_primary` では `line-width` の値を以下の�
 
 では、この作業をMaputnikで行います。
 
-今回は Klokantech Basicの路線の表示である `railway` を対象に行います。
+今回は MapTiler Basic の路線の表示である `railway` を対象に行います。
 
-まず、`Paint properties` の `Width` の左にある `Σ` を選択します。
+まず、 `ペイントプロパティ` の `Width` の左にある `Σ` を選択します。
 
 [maputnik-function-01]: images/maputnik_function_01.png
 ![Zoomのswitch][maputnik-function-01]
@@ -600,7 +600,7 @@ Klokantech Basicの `road_trunk_primary` では `line-width` の値を以下の�
 
 これで路線が滑らかに拡大するようになります。
 
-### fill-translateによる2Dでの影付け
+### fill-translate による2Dでの影付け
 
 `fill-translate` の説明で影付けで使われるオプションであると紹介しましたが、実際にbuildingで利用する例を紹介します。
 手順は以下のようになります。
@@ -614,11 +614,11 @@ Klokantech Basicの `road_trunk_primary` では `line-width` の値を以下の�
 
 Translateの値をあまり大きくしないのがポイントです。何故なら余り離れてしまうと影としては不自然に見えてしまうからです。
 
-### line-dasharrayによるゼブラ模様の作成
+### line-dasharray によるゼブラ模様の作成
 
 `line-dasharray` は行政区を表現するための点線によく使われる表現ですが、工夫をすると線路のゼブラなどを実現することができます。
 
-今回は Klokantech Basicの路線の表示である `railway` を対象に行います。
+今回は MapTiler Basic の路線の表示である `railway` を対象に行います。
 実際の作業は以下の手順で行います。
 
 1. `railway` を複製して、複製したレイヤーが下に(つまりMaputnik上では上に)配置されるようにする

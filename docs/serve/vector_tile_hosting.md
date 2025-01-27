@@ -67,7 +67,7 @@ tileserver-glでは以下のような構成となります。
 - config.json: `tileserver-gl` の設定ファイル
 - fonts: Protocol Buffer形式に変換されたフォントが格納したディレクトリ
 - sprites: POIなどのアイコンファイルをCSS Spriteのような形式にした画像と参照用のjsonファイルを格納したディレクトリ
-- styles: Mapbox GL Styleによるjsonファイルを格納したディレクトリ
+- styles: MapLibre Styleによるjsonファイルを格納したディレクトリ
 - tiles.mbtiles: ベクトルタイルを格納したファイル
 
 なお、ディレクトリの配置については後述するconfig.jsonで変更ができます。

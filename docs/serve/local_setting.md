@@ -8,12 +8,12 @@ Maputnikで参照されるURL参照元が
    "sources": {
      "openmaptiles": {
        "type": "vector",
--      "url": "https://tile2.openstreetmap.jp/data/japan.json"
+-      "url": "https://tile.openstreetmap.jp/data/japan.json"
 +      "url": "mbtiles://{japan}"
      }
    },
--  "sprite": "https://tile2.openstreetmap.jp/styles/osm-bright/sprite",
--  "glyphs": "https://tile2.openstreetmap.jp/fonts/{fontstack}/{range}.pbf",
+-  "sprite": "https://tile.openstreetmap.jp/styles/osm-bright/sprite",
+-  "glyphs": "https://tile.openstreetmap.jp/fonts/{fontstack}/{range}.pbf",
 +  "sprite": "{style},
 +  "glyphs": "{fontstack}/{range}.pbf",
    "layers": [
