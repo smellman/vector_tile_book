@@ -1,8 +1,8 @@
 # Sprite URL について
 
-Mapbox GL StyleではPOI用のアイコンの画像を使う際には `Sprite URL` を設定しなくてはいけません。
+MapLibre GL StyleではPOI用のアイコンの画像を使う際には `Sprite URL` を設定しなくてはいけません。
 
-Spriteとは CSS Sprite のような画像を指し、 Mapbox GL Style ではSpriteの位置をPOIなどと関連付けるため、
+Spriteとは CSS Sprite のような画像を指し、 MapLibre Style ではSpriteの位置をPOIなどと関連付けるため、
 `sprite.json` というファイルを用意する必要があります。
 
 実際に必要な構成は以下のようになります。
